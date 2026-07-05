@@ -7,16 +7,18 @@ import { activeCharacters, inactiveCharacters } from '../data/charactersData'
 import { latestSession } from '../data/sessionsData'
 import { openQuests } from '../data/questsData'
 
-export default function Home({ onCharacterClick, onHomeClick, onNpcsClick, onSessionsClick, onQuestsClick }) {
+export default function Home({ onCharacterClick, onCharactersClick, onHomeClick, onNpcsClick, onSessionsClick, onQuestsClick }) {
   return (
     <div className="site-shell">
       <Navbar
         activePage="Home"
         onHomeClick={onHomeClick}
+        onCharactersClick={onCharactersClick}
         onNpcsClick={onNpcsClick}
         onSessionsClick={onSessionsClick}
         onQuestsClick={onQuestsClick}
-/>    
+      />
+  
       <HeroBanner />
 
       <main className="home-grid">
