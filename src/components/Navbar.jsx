@@ -1,6 +1,7 @@
 export default function Navbar({
   activePage = 'Home',
   onHomeClick,
+  onCharactersClick,
   onNpcsClick,
   onSessionsClick,
   onQuestsClick,
@@ -22,6 +23,11 @@ export default function Navbar({
       return
     }
 
+    if (link === 'Personaggi') {
+      onCharactersClick?.()
+      return
+    }
+
     if (link === 'Sessioni') {
       onSessionsClick?.()
       return
@@ -34,18 +40,6 @@ export default function Navbar({
 
     if (link === 'PNG') {
       onNpcsClick?.()
-      return
-    }
-
-    if (link === 'Personaggi') {
-      onHomeClick?.()
-
-      setTimeout(() => {
-        document
-          .querySelector('.characters-panel')
-          ?.scrollIntoView({ behavior: 'smooth' })
-      }, 50)
-
       return
     }
   }

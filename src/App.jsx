@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import Home from './pages/Home'
 import CharacterPage from './pages/CharacterPage'
+import CharactersPage from './pages/CharactersPage'
 import NpcsPage from './pages/NpcsPage'
 import SessionsPage from './pages/SessionsPage'
 import QuestsPage from './pages/QuestsPage'
@@ -9,6 +10,7 @@ import './styles/global.css'
 import './styles/layout.css'
 import './styles/cards.css'
 import './styles/character.css'
+import './styles/characters.css'
 import './styles/npcs.css'
 import './styles/sessions.css'
 import './styles/quests.css'
@@ -23,6 +25,12 @@ function App() {
 
   const openHome = () => {
     setCurrentPage('home')
+    setSelectedCharacterId(null)
+    scrollTop()
+  }
+
+  const openCharacters = () => {
+    setCurrentPage('characters')
     setSelectedCharacterId(null)
     scrollTop()
   }
@@ -56,13 +64,28 @@ function App() {
   )
 
   if (currentPage === 'character' && selectedCharacter) {
-    return <CharacterPage character={selectedCharacter} onBack={openHome} />
+    return <CharacterPage character={selectedCharacter} onBack={openCharacters} />
+  }
+
+  if (currentPage === 'characters') {
+    return (
+      <CharactersPage
+        onNavigate={openHome}
+        onHomeClick={openHome}
+        onCharactersClick={openCharacters}
+        onNpcsClick={openNpcs}
+        onSessionsClick={openSessions}
+        onQuestsClick={openQuests}
+        onCharacterClick={openCharacter}
+      />
+    )
   }
 
   if (currentPage === 'npcs') {
     return (
       <NpcsPage
         onHomeClick={openHome}
+        onCharactersClick={openCharacters}
         onNpcsClick={openNpcs}
         onSessionsClick={openSessions}
         onQuestsClick={openQuests}
@@ -76,6 +99,7 @@ function App() {
       <SessionsPage
         onNavigate={openHome}
         onHomeClick={openHome}
+        onCharactersClick={openCharacters}
         onNpcsClick={openNpcs}
         onSessionsClick={openSessions}
         onQuestsClick={openQuests}
@@ -88,6 +112,7 @@ function App() {
       <QuestsPage
         onNavigate={openHome}
         onHomeClick={openHome}
+        onCharactersClick={openCharacters}
         onNpcsClick={openNpcs}
         onSessionsClick={openSessions}
         onQuestsClick={openQuests}
@@ -98,6 +123,7 @@ function App() {
   return (
     <Home
       onCharacterClick={openCharacter}
+      onCharactersClick={openCharacters}
       onHomeClick={openHome}
       onNpcsClick={openNpcs}
       onSessionsClick={openSessions}

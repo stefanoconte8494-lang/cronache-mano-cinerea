@@ -1,0 +1,167 @@
+/* PERSONAGGI - VERSIONE 0.52 */
+
+.characters-page-shell {
+  min-height: 100vh;
+}
+
+.characters-page {
+  width: min(1180px, calc(100% - 44px));
+  margin: 0 auto;
+  padding: 34px 0 76px;
+  color: #f4ead7;
+}
+
+.characters-hero {
+  margin-top: 28px;
+  padding: 34px;
+  border: 1px solid rgba(197, 145, 68, 0.28);
+  background:
+    radial-gradient(circle at top left, rgba(197, 145, 68, 0.12), transparent 36%),
+    linear-gradient(135deg, rgba(26, 16, 12, 0.96), rgba(8, 7, 7, 0.94));
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.38);
+}
+
+.characters-hero h1 {
+  margin: 10px 0;
+  color: #f2d08a;
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  line-height: 0.95;
+}
+
+.characters-hero p {
+  max-width: 780px;
+  color: rgba(244, 234, 215, 0.78);
+  font-size: 1.04rem;
+  line-height: 1.7;
+}
+
+.characters-list {
+  display: grid;
+  gap: 22px;
+  margin-top: 26px;
+}
+
+.character-preview-card {
+  border: 1px solid rgba(197, 145, 68, 0.28);
+  background:
+    linear-gradient(90deg, rgba(139, 45, 31, 0.08), transparent 34%),
+    radial-gradient(circle at top right, rgba(197, 145, 68, 0.08), transparent 38%),
+    rgba(14, 10, 8, 0.88);
+  box-shadow: 0 18px 52px rgba(0, 0, 0, 0.36);
+  overflow: hidden;
+  transition: 0.25s ease;
+}
+
+.character-preview-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(197, 145, 68, 0.52);
+}
+
+.character-preview-button {
+  display: grid;
+  grid-template-columns: 230px 1fr;
+  width: 100%;
+  min-height: 290px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.character-preview-image-wrap {
+  border-right: 1px solid rgba(197, 145, 68, 0.2);
+  background: rgba(0, 0, 0, 0.32);
+  min-height: 290px;
+}
+
+.character-preview-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: saturate(0.9) contrast(1.05);
+}
+
+.character-preview-placeholder {
+  height: 100%;
+  min-height: 290px;
+  display: grid;
+  place-items: center;
+  color: #d6a652;
+  font-size: 5rem;
+  background:
+    radial-gradient(circle, rgba(197, 145, 68, 0.18), transparent 42%),
+    rgba(0, 0, 0, 0.28);
+}
+
+.character-preview-content {
+  padding: 34px 38px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.character-order {
+  margin: 0 0 12px;
+  color: #c99346;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-weight: 700;
+  font-size: 0.78rem;
+}
+
+.character-preview-content h2 {
+  margin: 0;
+  color: #f4ead7;
+  font-size: clamp(2.2rem, 5vw, 4.7rem);
+  line-height: 0.95;
+}
+
+.character-subtitle {
+  margin: 16px 0 22px;
+  color: #d6a652;
+  font-size: clamp(1.1rem, 2vw, 1.45rem);
+  font-weight: 700;
+}
+
+.character-quote-box {
+  border-left: 4px solid #b94a2c;
+  background: rgba(0, 0, 0, 0.22);
+  padding: 18px 24px;
+}
+
+.character-quote-box p {
+  margin: 0;
+  color: rgba(244, 234, 215, 0.88);
+  font-size: 1.05rem;
+  line-height: 1.7;
+  font-style: italic;
+}
+
+@media (max-width: 780px) {
+  .characters-page {
+    width: min(100% - 28px, 1180px);
+    padding-top: 24px;
+  }
+
+  .characters-hero {
+    padding: 24px;
+  }
+
+  .character-preview-button {
+    grid-template-columns: 1fr;
+  }
+
+  .character-preview-image-wrap {
+    border-right: 0;
+    border-bottom: 1px solid rgba(197, 145, 68, 0.2);
+    height: 360px;
+  }
+
+  .character-preview-content {
+    padding: 26px 24px;
+  }
+}
