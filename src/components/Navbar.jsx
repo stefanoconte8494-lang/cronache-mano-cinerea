@@ -3,6 +3,7 @@ export default function Navbar({
   onHomeClick,
   onNpcsClick,
   onSessionsClick,
+  onQuestsClick,
 }) {
   const links = [
     'Home',
@@ -16,16 +17,18 @@ export default function Navbar({
   ]
 
   const handleNavClick = (link) => {
-    console.log("CLICCATO:", link)
-
     if (link === 'Home') {
       onHomeClick?.()
       return
     }
 
     if (link === 'Sessioni') {
-      console.log('CLICCATO SESSIONI')
       onSessionsClick?.()
+      return
+    }
+
+    if (link === 'Quest') {
+      onQuestsClick?.()
       return
     }
 

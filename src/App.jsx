@@ -3,6 +3,7 @@ import Home from './pages/Home'
 import CharacterPage from './pages/CharacterPage'
 import NpcsPage from './pages/NpcsPage'
 import SessionsPage from './pages/SessionsPage'
+import QuestsPage from './pages/QuestsPage'
 import { characters } from './data/charactersData'
 import './styles/global.css'
 import './styles/layout.css'
@@ -10,6 +11,7 @@ import './styles/cards.css'
 import './styles/character.css'
 import './styles/npcs.css'
 import './styles/sessions.css'
+import './styles/quests.css'
 
 function App() {
   const [currentPage, setCurrentPage] = useState('home')
@@ -32,8 +34,13 @@ function App() {
   }
 
   const openSessions = () => {
-    console.log("CLICK SESSIONI")
     setCurrentPage('sessions')
+    setSelectedCharacterId(null)
+    scrollTop()
+  }
+
+  const openQuests = () => {
+    setCurrentPage('quests')
     setSelectedCharacterId(null)
     scrollTop()
   }
@@ -58,13 +65,34 @@ function App() {
         onHomeClick={openHome}
         onNpcsClick={openNpcs}
         onSessionsClick={openSessions}
+        onQuestsClick={openQuests}
         onCharacterClick={openCharacter}
       />
     )
   }
 
   if (currentPage === 'sessions') {
-    return <SessionsPage onNavigate={openHome} />
+    return (
+      <SessionsPage
+        onNavigate={openHome}
+        onHomeClick={openHome}
+        onNpcsClick={openNpcs}
+        onSessionsClick={openSessions}
+        onQuestsClick={openQuests}
+      />
+    )
+  }
+
+  if (currentPage === 'quests') {
+    return (
+      <QuestsPage
+        onNavigate={openHome}
+        onHomeClick={openHome}
+        onNpcsClick={openNpcs}
+        onSessionsClick={openSessions}
+        onQuestsClick={openQuests}
+      />
+    )
   }
 
   return (
@@ -73,6 +101,7 @@ function App() {
       onHomeClick={openHome}
       onNpcsClick={openNpcs}
       onSessionsClick={openSessions}
+      onQuestsClick={openQuests}
     />
   )
 }
