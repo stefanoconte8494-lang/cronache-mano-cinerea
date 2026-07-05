@@ -1,9 +1,31 @@
-export default function Navbar({ activePage = 'Home', onHomeClick, onNpcsClick, onCharacterClick }) {
-  const links = ['Home', 'Personaggi', 'Sessioni', 'Quest', 'Luoghi', 'PNG', 'Oggetti', 'Timeline']
+export default function Navbar({
+  activePage = 'Home',
+  onHomeClick,
+  onNpcsClick,
+  onSessionsClick,
+}) {
+  const links = [
+    'Home',
+    'Personaggi',
+    'Sessioni',
+    'Quest',
+    'Luoghi',
+    'PNG',
+    'Oggetti',
+    'Timeline',
+  ]
 
   const handleNavClick = (link) => {
+    console.log("CLICCATO:", link)
+
     if (link === 'Home') {
       onHomeClick?.()
+      return
+    }
+
+    if (link === 'Sessioni') {
+      console.log('CLICCATO SESSIONI')
+      onSessionsClick?.()
       return
     }
 
@@ -14,9 +36,13 @@ export default function Navbar({ activePage = 'Home', onHomeClick, onNpcsClick, 
 
     if (link === 'Personaggi') {
       onHomeClick?.()
+
       setTimeout(() => {
-        document.querySelector('.characters-panel')?.scrollIntoView({ behavior: 'smooth' })
+        document
+          .querySelector('.characters-panel')
+          ?.scrollIntoView({ behavior: 'smooth' })
       }, 50)
+
       return
     }
   }
@@ -31,9 +57,9 @@ export default function Navbar({ activePage = 'Home', onHomeClick, onNpcsClick, 
       <div className="navbar-links">
         {links.map((link) => (
           <button
-            className={link === activePage ? 'nav-link active' : 'nav-link'}
             key={link}
             type="button"
+            className={link === activePage ? 'nav-link active' : 'nav-link'}
             onClick={() => handleNavClick(link)}
           >
             {link}

@@ -7,10 +7,10 @@ import { activeCharacters, inactiveCharacters } from '../data/charactersData'
 import { latestSession } from '../data/sessionsData'
 import { openQuests } from '../data/questsData'
 
-export default function Home({ onCharacterClick, onHomeClick, onNpcsClick }) {
+export default function Home({ onCharacterClick, onHomeClick, onNpcsClick, onSessionsClick }) {
   return (
     <div className="site-shell">
-      <Navbar activePage="Home" onHomeClick={onHomeClick} onNpcsClick={onNpcsClick} />
+      <Navbar activePage="Home" onHomeClick={onHomeClick} onNpcsClick={onNpcsClick} onSessionsClick={onSessionsClick} />
       <HeroBanner />
 
       <main className="home-grid">
@@ -27,7 +27,7 @@ export default function Home({ onCharacterClick, onHomeClick, onNpcsClick }) {
                   <span key={tag}>{tag}</span>
                 ))}
               </div>
-              <button className="primary-button" type="button">Apri sessione</button>
+              <button className="primary-button" type="button" onClick={onSessionsClick}>Apri sessione</button>
             </div>
           </div>
         </section>
