@@ -1,7 +1,323 @@
-export const latestSession = {
-  number: 40,
-  title: 'La Chiacchiera del Vicolo',
-  summary:
-    'Nuovi volti, vecchie ombre e segreti che tornano a galla. Sszara e Mia entrano nella Mano Cinerea, mentre il Tulipano e le forze del Signore delle Locuste provano a ostacolare il cammino del gruppo.',
-  tags: ['Mano Cinerea', 'Tulipano', 'Misteri', 'Nuovi membri'],
-}
+export const sessions = [
+  {
+    id: 1,
+    number: 1,
+    title: 'Seta di ragno a Faro di Cenere',
+    status: 'Da verificare/rifinire',
+    arc: 'Faro di Cenere',
+    summary: "Gertrude affida a un gruppo di sconosciuti il recupero di una misteriosa seta di ragno nelle foreste a nord-est di Faro di Cenere. La missione si rivela subito più pericolosa del previsto: ragni giganti, vittime prosciugate e una sostanza dalle proprietà anti-magiche fanno intuire che dietro la semplice commissione si nasconda qualcosa di oscuro. L'apparizione di Colei che Osserva chiude la giornata con una domanda inquietante.",
+    people: ['Gertrude', 'Colei che Osserva', 'Jelly', 'Ian', 'Kaelthar', 'Saphira', 'Brewen', 'Zero'],
+    places: ['Faro di Cenere', 'Foresta dei Ragni', 'Taverna del Faro'],
+    tags: ['Seta', 'Ragni', 'Primo incarico']
+  },
+  {
+    id: 2,
+    number: 2,
+    title: "Colei che Osserva e l'agguato",
+    status: 'Da verificare/rifinire',
+    arc: 'Faro di Cenere',
+    summary: "Colei che Osserva avverte il gruppo dell'agguato preparato da uomini armati interessati alla seta. Gli avventurieri ribaltano la situazione presso un vecchio posto di guardia, catturano alcuni assalitori e scoprono da Gertrude che la seta era destinata agli inquisitori per trasportare il giovane necromante Larr Nyal.",
+    people: ['Colei che Osserva', 'Gertrude', 'Larr Nyal', 'Zero'],
+    places: ['Faro di Cenere', 'Vecchio posto di guardia', 'Taverna del Faro'],
+    tags: ['Agguato', 'Seta', 'Larr']
+  },
+  {
+    id: 3,
+    number: 3,
+    title: 'La casa di Roy e Iskra',
+    status: 'Da verificare/rifinire',
+    arc: 'Faro di Cenere',
+    summary: 'Le indagini conducono il gruppo alla casa del defunto Roy, dove gli inquisitori di Bracodonio stanno conducendo ricerche poco trasparenti. Non ottenendo risposte, gli avventurieri si rivolgono alla chiromante Iskra, che rivela il passato di Larr, Astra, Damocle e Alistair. Il nome del Signore delle Locuste inizia a gettare la sua ombra sulla vicenda.',
+    people: ['Iskra Velevan', 'Roy', 'Larr Nyal', 'Astra Larisa', 'Damocle', 'Alistair'],
+    places: ['Casa di Roy', 'Faro di Cenere', 'Tenda di Iskra'],
+    tags: ['Indagine', 'Iskra', 'Damocle']
+  },
+  {
+    id: 4,
+    number: 4,
+    title: 'Ranauld e la pista di Astra',
+    status: 'Da verificare/rifinire',
+    arc: 'Faro di Cenere',
+    summary: "Il gruppo torna alla casa di Roy e incontra Ranauld, un mago cieco dell'Inquisizione. Il confronto chiarisce che una presenza antica e terribile sta agendo a Faro di Cenere. Su richiesta degli inquisitori, la Mano parte alla ricerca di Astra e Alistair, trovando il non morto nelle rovine di una vecchia caverna.",
+    people: ['Ranauld', 'Astra Larisa', 'Alistair', 'Inquisitori di Bracodonio'],
+    places: ['Casa di Roy', 'Caverna in rovina', 'Bosco ferito dalla guerra'],
+    tags: ['Inquisizione', 'Astra', 'Alistair']
+  },
+  {
+    id: 5,
+    number: 5,
+    title: 'Alistair e Astra al fuoco',
+    status: 'Da verificare/rifinire',
+    arc: 'Faro di Cenere',
+    summary: 'Il primo dialogo con Alistair è teso, segnato da diffidenza e accuse, ma un pasto attorno al fuoco permette di abbassare le armi. Astra racconta parte della propria storia, il legame con Larr e il ruolo di Damocle. Dopo molte mezze verità viene stretto un accordo: se il gruppo troverà ciò che Astra e Alistair cercano, i due lasceranno Faro di Cenere.',
+    people: ['Alistair', 'Astra Larisa', 'Larr Nyal', 'Damocle'],
+    places: ['Accampamento nel bosco', 'Rovine antiche'],
+    tags: ['Astra', 'Alistair', 'Accordo']
+  },
+  {
+    id: 6,
+    number: 6,
+    title: 'Il tempio e la legione non morta',
+    status: 'Da verificare/rifinire',
+    arc: 'Faro di Cenere',
+    summary: "La Mano Cinerea penetra in un antico complesso infestato da guerrieri non morti. Sala dopo sala scopre che il ritorno dei redivivi è legato a sigilli incisi sui crani. Dopo una prova marziale e cinque domande poste da un vecchio paladino tiefling, il gruppo ottiene il vero tesoro del tempio: un'urna di metallo nero dai poteri inquietanti.",
+    people: ['Guardiano del tempio', 'Alistair'],
+    places: ['Tempio antico', 'Sale dei non morti'],
+    tags: ['Tempio', 'Non morti', 'Urna']
+  },
+  {
+    id: 7,
+    number: 7,
+    title: "L'urna nera e i Frutti della Vita",
+    status: 'Da verificare/rifinire',
+    arc: 'Faro di Cenere',
+    summary: "L'urna rivela il potere di separare l'anima dal corpo, intrappolando Brewen e Zero in una condizione sospesa. Ian trova il modo di liberare i compagni, rivelando due piccoli Frutti della Vita. Alistair spiega che possono separare qualcuno dalla Trama e il gruppo decide di usarli per salvare Astra e Larr.",
+    people: ['Astra Larisa', 'Alistair', 'Larr Nyal', 'Brewen', 'Zero', 'Ian'],
+    places: ['Tempio antico', 'Faro di Cenere'],
+    tags: ['Frutti della Vita', 'Urna', 'Trama']
+  },
+  {
+    id: 8,
+    number: 8,
+    title: 'Meteore, Amir e contratto pelleverde',
+    status: 'Da verificare/rifinire',
+    arc: 'Faro di Cenere',
+    summary: "Dopo la caduta delle meteore, il gruppo recupera un frammento dell'urna che conserva parte del suo potere anti-Trama. A Faro di Cenere la popolazione è nel panico; Gertrude chiede discrezione e Amir paga per studiare le carcasse delle creature. Gli avventurieri accettano poi un contratto contro una banda di pelleverde tornata a minacciare il vecchio William.",
+    people: ['Gertrude', 'Amir', 'William', 'Brewen', 'Zero'],
+    places: ['Faro di Cenere', 'Grotta', 'Campagne di Faro'],
+    tags: ['Meteore', 'Amir', 'Pelleverde']
+  },
+  {
+    id: 9,
+    number: 9,
+    title: 'Faro di Cenere sotto attacco',
+    status: 'Da verificare/rifinire',
+    arc: 'Faro di Cenere',
+    summary: "Mentre il gruppo affronta gli orchi, una nuova pioggia di meteore colpisce vicino a Faro di Cenere. Gli avventurieri corrono verso la città, trovandola invasa da creature serpentine che massacrano soprattutto coloro che portano simboli sacri. All'alba la città è salva, ma profondamente ferita.",
+    people: ['Gertrude', 'Amir', 'Guardie di Faro', 'Jelly', 'Ian', 'Kaelthar', 'Brewen', 'Zero'],
+    places: ['Faro di Cenere', 'Santuario di Weinar'],
+    tags: ['Attacco', 'Caduti', 'Meteore']
+  },
+  {
+    id: 10,
+    number: 10,
+    title: 'Nascita della Mano Cinerea e Torre di Damocle',
+    status: 'Da verificare/rifinire',
+    arc: 'Torre di Damocle',
+    summary: "Dopo l'attacco, il gruppo assume il nome di Mano Cinerea. Seguendo il consiglio di Gertrude, gli avventurieri cercano la torre di Damocle e una copia del Libro veggente di Odek. Con una mappa di Amir e Saariel come nuovo compagno, attraversano una foresta illusoria fino alla torre, dove un martello rivela un passaggio verso le profondità.",
+    people: ['Gertrude', 'Amir', 'Saariel', 'Damocle', 'Colei che Osserva'],
+    places: ['Faro di Cenere', 'Torre di Damocle', 'Foresta illusoria'],
+    tags: ['Mano Cinerea', 'Torre', 'Damocle']
+  },
+  {
+    id: 11,
+    number: 11,
+    title: 'Il culto sotto la torre',
+    status: 'Da verificare/rifinire',
+    arc: 'Torre di Damocle',
+    summary: "Nelle profondità sotto la torre, la Mano Cinerea scopre che il Culto del Signore delle Locuste ha contaminato quel luogo. Tra non morti, trappole e glifi alterati, il gruppo trova segni di esperimenti oscuri. L'esplorazione culmina nell'apparizione del Signore delle Locuste, che distrugge la propria servitrice e ordina a Zero di consegnare il gioiello al suo vero destinatario.",
+    people: ['Signore delle Locuste', 'Zero', 'Megera cultista'],
+    places: ['Sotterranei della Torre di Damocle', 'Sancta Sanctorum'],
+    tags: ['Culto', 'Locuste', 'Zero']
+  },
+  {
+    id: 12,
+    number: 12,
+    title: 'Elena e il Grimorio di Damocle',
+    status: 'Da verificare/rifinire',
+    arc: 'Torre di Damocle',
+    summary: "Nel cuore delle catacombe, la Mano Cinerea incontra Elena, vampira e compagna di Damocle. Elena rivela che il necromante aveva previsto l'arrivo dei Caduti e preparato un esercito di non morti per proteggere Faro di Cenere. Come dono decisivo, consegna al gruppo il Grimorio personale di Damocle.",
+    people: ['Elena', 'Damocle', 'Saariel'],
+    places: ['Catacombe di Damocle', 'Torre di Damocle'],
+    tags: ['Elena', 'Grimorio', 'Necromanzia']
+  },
+  {
+    id: 13,
+    number: 13,
+    title: 'Biblioteca di Damocle e Libro di Odek',
+    status: 'Da verificare/rifinire',
+    arc: 'Torre di Damocle',
+    summary: "L'esplorazione continua tra ossa, terra pressata e sangue, fino alla misteriosa scomparsa di Brewen e alla scoperta di uno spillo incantato nel suo cranio. Annullato l'incantesimo grazie al frammento dell'urna, il gruppo raggiunge la biblioteca di Damocle e trova il Libro veggente di Odek con gli appunti del necromante.",
+    people: ['Brewen', 'Damocle', 'Jelly', 'Ian', 'Kaelthar', 'Zero', 'Saariel'],
+    places: ['Biblioteca di Damocle', 'Sotterranei della Torre'],
+    tags: ['Libro di Odek', 'Biblioteca', 'Caduti']
+  },
+  {
+    id: 14,
+    number: 14,
+    title: 'Residenza 34 e spedizione a Rosso Fosso',
+    status: 'Da verificare/rifinire',
+    arc: 'Rosso Fosso',
+    summary: 'La Mano Cinerea si stabilisce alla Residenza 34, una villa piena di misteri e dominata da una porta di mogano e piombo che resiste alla divinazione. Poco dopo riceve un contratto ufficiale: accompagnare la prima spedizione militare di Faro di Cenere verso Rosso Fosso, villaggio isolato dopo la pioggia di meteore.',
+    people: ['Jelly', 'Gertrude', 'Inquisitori di Bracodonio'],
+    places: ['Residenza 34', 'Faro di Cenere', 'Strada per Rosso Fosso'],
+    tags: ['Residenza 34', 'Rosso Fosso', 'Tulipano']
+  },
+  {
+    id: 15,
+    number: 15,
+    title: 'Diana Willowbane e il gioiello rubato',
+    status: 'Da verificare/rifinire',
+    arc: 'Rosso Fosso',
+    summary: "Durante il viaggio verso Rosso Fosso, la Mano Cinerea sbaraglia Caduti e pelleverde, catturando vivo un esemplare pallido. Al campo emerge un'anomalia: la spedizione conta un membro in più. L'intrusa è Diana Willowbane, agente del Signore delle Locuste, venuta a recuperare il gioiello di Zero. Dopo un rapido scontro fugge in una pozza di sangue.",
+    people: ['Diana Willowbane', 'Zero', 'Crowbane', 'Caduto pallido'],
+    places: ['Campo della spedizione', 'Strada per Rosso Fosso'],
+    tags: ['Diana', 'Gioiello', 'Locuste']
+  },
+  {
+    id: 16,
+    number: 16,
+    title: 'Rosso Fosso: trappola pelleverde',
+    status: 'Da verificare/rifinire',
+    arc: 'Rosso Fosso',
+    summary: 'Con Diana scomparsa e il gioiello perduto, una locusta rimasta con il gruppo si rivela un frammento consapevole del Signore dello Sciame. La creatura promette potere a Zero in cambio di assistenza. Ma Rosso Fosso è vicino: un paese apparentemente deserto si rivela una trappola di pelleverde armati con equipaggiamento nuovo e sostanze alchemiche.',
+    people: ['Zero', 'Frammento dello Sciame', 'Pelleverde'],
+    places: ['Villaggio sulla strada', 'Rosso Fosso'],
+    tags: ['Frammento', 'Pelleverde', 'Trappola']
+  },
+  {
+    id: 17,
+    number: 17,
+    title: 'Rosso Fosso: massacro e rinforzi',
+    status: 'Da verificare/rifinire',
+    arc: 'Rosso Fosso',
+    summary: "Dopo aver respinto gli orchi nel villaggio, la Mano Cinerea scopre che gli abitanti creduti scomparsi sono stati massacrati nella taverna locale. Crowbane raduna uomini e rinforzi per raggiungere Rosso Fosso prima che gli assedianti chiudano ogni via d'accesso. La città riceve aiuto e si prepara alla battaglia.",
+    people: ['Crowbane', 'Anacleto', 'I Sette', 'Pelleverde'],
+    places: ['Villaggio massacrato', 'Rosso Fosso'],
+    tags: ['Massacro', 'Assedio', 'Rinforzi']
+  },
+  {
+    id: 18,
+    number: 18,
+    title: 'Assedio di Rosso Fosso e Korgrath',
+    status: 'Da verificare/rifinire',
+    arc: 'Rosso Fosso',
+    summary: "Rosso Fosso viene travolta dall'assalto dell'orda orchesca. L'arrivo della Mano Cinerea, di Crowbane e dei volontari di Faro permette alla popolazione di guadagnare tempo e ritirarsi verso il centro fortificato. La giornata si chiude con l'apparizione di Korgrath il Senza Dio, capo dei pelleverde.",
+    people: ['Korgrath il Senza Dio', 'Crowbane', 'Saariel', 'Brewen', 'Zero'],
+    places: ['Rosso Fosso', 'Mura esterne', 'Cava'],
+    tags: ['Assedio', 'Korgrath', 'Orchi']
+  },
+  {
+    id: 19,
+    number: 19,
+    title: 'La cantina del capitano',
+    status: 'Da verificare/rifinire',
+    arc: 'Rosso Fosso',
+    summary: "La crisi di Rosso Fosso costringe la Mano Cinerea a discutere piani difficili e soluzioni disperate. Ogni decisione viene interrotta da una scoperta nella cantina dell'apparente capitano: sostanze misteriose, pagine capaci di confondere la mente, il corpo conservato del vero capitano e una mappa di Emnotork con i luoghi più importanti trasformati in crateri.",
+    people: ['Capitano di Rosso Fosso', 'Mano Cinerea'],
+    places: ['Rosso Fosso', 'Cantina del capitano'],
+    tags: ['Inganno', 'Mappa', 'Crateri']
+  },
+  {
+    id: 20,
+    number: 20,
+    title: 'Piani, infiltrazione e i Sette',
+    status: 'Da verificare/rifinire',
+    arc: 'Rosso Fosso',
+    summary: "La Mano Cinerea si prepara alla battaglia: Jelly si infiltra nel campo dei pelleverde per avvelenare le bestie da caccia, mentre il resto del gruppo combatte con la milizia. Durante lo scontro emergono anomalie inquietanti, ma la svolta arriva dai Sette, che alterano i piani, tendono un'imboscata a Korgrath e lasciano Rosso Fosso con lo sciamano pelleverde.",
+    people: ['Jelly', 'Ian', 'Kaelthar', 'Brewen', 'Saariel', 'I Sette', 'Korgrath'],
+    places: ['Campo pelleverde', 'Rosso Fosso'],
+    tags: ['Infiltrazione', 'I Sette', 'Korgrath']
+  },
+  {
+    id: 21,
+    number: 21,
+    title: 'Ritorno a Faro e laboratorio dello specchio',
+    status: 'Da verificare/rifinire',
+    arc: 'Residenza 34',
+    summary: 'Il ritorno a Faro di Cenere è trionfale: il nome e il sigillo della Mano Cinerea vengono accolti dalla popolazione. Le notizie da Rosso Fosso e il comportamento dei Sette spingono Gertrude a firmare la taglia contro di loro. Alla Residenza 34, una chiave incantata apre la porta segreta, rivelando un laboratorio costruito attorno a un misterioso specchio.',
+    people: ['Gertrude', 'I Sette', 'Jelly', 'Ian', 'Kaelthar', 'Brewen', 'Saariel'],
+    places: ['Faro di Cenere', 'Residenza 34', 'Laboratorio dello specchio'],
+    tags: ['Ritorno', 'Residenza 34', 'Specchio']
+  },
+  {
+    id: 22,
+    number: 22,
+    title: 'Spettri della Residenza e chiamata di Astra',
+    status: 'Da verificare/rifinire',
+    arc: 'Residenza 34',
+    summary: 'La Residenza 34 rivela la propria natura inquietante. Lo specchio intrappola le vittime in una prigione idilliaca e libera copie perfette nel mondo reale; Saariel ne subisce le conseguenze. Dopo il funerale di un bambino senza nome trovato sotto la casa, nuove presenze spettrali si manifestano nella villa, mentre una lettera di Astra richiama il gruppo verso nuovi pericoli.',
+    people: ['Saariel', 'Astra Larisa', 'Ian', 'Kaelthar'],
+    places: ['Residenza 34', 'Laboratorio dello specchio', 'Giardino della villa'],
+    tags: ['Specchio', 'Spettri', 'Astra']
+  },
+  {
+    id: 23,
+    number: 23,
+    title: 'Viaggio, Caduti e giganti',
+    status: 'Da verificare/rifinire',
+    arc: 'Verso Ishar',
+    summary: 'La Mano Cinerea lascia Faro di Cenere per rispondere alla richiesta di Astra e si spinge più lontano di quanto abbia mai fatto. Durante il viaggio incontra resti di impatti celesti e viene attaccata da abomini non morti servitori del Signore delle Locuste. Più avanti affronta e sconfigge tre giganti responsabili del saccheggio di un granaio.',
+    people: ['Astra Larisa', 'Signore delle Locuste', 'Giganti'],
+    places: ['Strada per Ishar', "Vecchio punto d'impatto", 'Villaggio senza nome'],
+    tags: ['Viaggio', 'Caduti', 'Giganti']
+  },
+  {
+    id: 24,
+    number: 24,
+    title: 'Arrivo a Ishar e incontro con Alistair',
+    status: 'Da verificare/rifinire',
+    arc: 'Ishar',
+    summary: 'La Mano Cinerea raggiunge Ishar, grande città di razze, fedi e mercati. Durante una pausa per acquistare equipaggiamento, i ricordi delle menti fuse in Jelly emergono con violenza. Il gruppo raccoglie informazioni su Astra e Larr, poi ritrova Alistair, che rivela che i servi delle Locuste stanno dando loro la caccia e che Daiana potrebbe essere legata a Elena.',
+    people: ['Alistair', 'Astra Larisa', 'Larr Nyal', 'Jelly', 'Daiana Willowbane', 'Elena'],
+    places: ['Ishar', 'Mercati di Ishar', 'Quartiere del fabbro'],
+    tags: ['Ishar', 'Alistair', 'Jelly']
+  },
+  {
+    id: 25,
+    number: 25,
+    title: 'Hilthar, incendio e lama di Saariel',
+    status: 'Da verificare/rifinire',
+    arc: 'Ishar',
+    summary: 'Con il ritorno di Zero, la Mano Cinerea è di nuovo al completo. Pedinando un pedinatore, il gruppo incontra Hilthar, uno gnomo senzatetto che ha osservato gli strani inseguitori della compagnia. Gli agenti delle Locuste incendiano la taverna dove Alistair riposava, mentre Saariel trova una replica della lama che lo tormenta da mesi.',
+    people: ['Zero', 'Hilthar', 'Alistair', 'Saariel', 'Lorgo'],
+    places: ['Ishar', 'Taverna incendiata', 'Fucina di Lorgo'],
+    tags: ['Hilthar', 'Incendio', 'Saariel']
+  },
+  {
+    id: 26,
+    number: 26,
+    title: 'Contratto contro il vampiro',
+    status: 'Da verificare/rifinire',
+    arc: 'Monastero abbandonato',
+    summary: 'Dopo acquisti e ricerche a Ishar, la Mano Cinerea accetta un nuovo contratto: eliminare un vampiro rifugiato in una rovina remota, circondato da servitori mortali e non morti. Il gruppo parte immediatamente, attirato dalla taglia e dalla possibilità di ottenere risposte sulla lama legata al destino di Saariel.',
+    people: ['Saariel', 'Mastro vampiro', 'Jelly', 'Ian', 'Kaelthar', 'Brewen'],
+    places: ['Ishar', 'Monastero abbandonato'],
+    tags: ['Contratto', 'Vampiro', 'Non morti']
+  },
+  {
+    id: 27,
+    number: 27,
+    title: 'Monastero abbandonato: non morti',
+    status: 'Da verificare/rifinire',
+    arc: 'Monastero abbandonato',
+    summary: "La Mano Cinerea continua l'esplorazione del vecchio monastero abbandonato. Con Zero di nuovo al fianco del gruppo, gli avventurieri avanzano tra non morti, servitori del vampiro e trappole disseminate nelle rovine. L'esaltazione della caccia, il pericolo della battaglia e la ricca taglia spingono la compagnia sempre più in profondità.",
+    people: ['Zero', 'Mastro vampiro', 'Jelly', 'Ian', 'Kaelthar', 'Brewen', 'Saariel'],
+    places: ['Monastero abbandonato', 'Rovine sotterranee'],
+    tags: ['Monastero', 'Non morti', 'Vampiro']
+  },
+  {
+    id: 28,
+    number: 28,
+    title: 'Il mastro vampiro parlamenta',
+    status: 'Da verificare/rifinire',
+    arc: 'Monastero abbandonato',
+    summary: "Quando la Mano Cinerea si prepara allo scontro decisivo nelle profondità del monastero, l'inaspettato accade: il mastro vampiro decide di parlamentare. Il dialogo rivela un culto non morto legato al passaggio verso l'aldilà. Guardiano di una lama capace di assorbire la magia, il vampiro offre aiuto per proteggere Astra e Larr, chiedendo però Alistair come prezzo.",
+    people: ['Mastro vampiro', 'Alistair', 'Astra Larisa', 'Larr Nyal'],
+    places: ['Monastero abbandonato', 'Rovine sotterranee'],
+    tags: ['Vampiro', 'Alistair', 'Lama assorbi-magia']
+  },
+  {
+    id: 40,
+    number: 40,
+    title: 'La caccia continua',
+    status: 'Da completare con sessioni 31-39',
+    arc: 'Da aggiornare',
+    summary: 'Dopo una lunga pausa nei riassunti, la Mano Cinerea riprende il filo della propria storia. Sszara e Mia si uniscono al gruppo, mentre Kaelthar non è più tra i membri attivi della compagnia. Gli avventurieri viaggiano tra strade innevate, campagne e nuove minacce, cercando la dimora di Ian e affrontando la furia omicida che incombe sulle vicende recenti.',
+    people: ['Sszara Sweetlight', 'Mia', 'Ian', 'Jelly', 'Brewen', 'Zero', 'Kaelthar'],
+    places: ['Strade innevate', 'Dimora di Ian'],
+    tags: ['Ripartenza', 'Sszara', 'Mia']
+  },
+];
+
+export default sessions;
