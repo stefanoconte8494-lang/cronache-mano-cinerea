@@ -320,4 +320,6 @@ export const sessions = [
   },
 ];
 
+export const latestSession = sessions.find((session) => session.number === 40) || sessions[sessions.length - 1];
+
 export default sessions;
