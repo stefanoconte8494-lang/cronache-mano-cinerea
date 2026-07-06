@@ -1,121 +1,91 @@
-import Navbar from '../components/Navbar'
+import CharacterForms from '../components/CharacterForms'
+import CharacterGallery from '../components/CharacterGallery'
 import Footer from '../components/Footer'
 
-function DataBlock({ title, children }) {
-  return (
-    <section className="character-section">
-      <h2>{title}</h2>
-      {children}
-    </section>
-  )
-}
-
 export default function CharacterPage({ character, onBack }) {
-  return (
-    <div className="site-shell">
-      <Navbar onHomeClick={onBack} />
+  const isRichCharacter = Boolean(character.background || character.forms || character.gallery)
 
-      <main className="character-page">
-        <button className="back-button" type="button" onClick={onBack}>
-          ← Torna alla Home
-        </button>
-
-        <section className="character-hero-panel">
-          <div className="character-image-frame">
-            <img src={character.image} alt={character.name} />
+  if (!isRichCharacter) {
+    return (
+      <div className="character-page">
+        <button className="back-button" type="button" onClick={onBack}>← Torna ai personaggi</button>
+        <section className="character-profile">
+          <div className="character-profile-image">
+            {character.image ? <img src={character.image} alt={character.name} /> : <div className="character-profile-placeholder">{character.symbol || '✦'}</div>}
           </div>
-
-          <div className="character-identity">
+          <div className="character-profile-content">
             <p className="kicker">Scheda personaggio</p>
             <h1>{character.name}</h1>
-            <p className="character-epithet">{character.epithet}</p>
-
-            <div className="identity-tags">
-              <span>{character.race}</span>
-              <span>{character.classSummary}</span>
-              <span>{character.subclassSummary}</span>
-              <span>{character.alignment}</span>
-            </div>
-
+            <h2>{character.subtitle || character.title}</h2>
             <blockquote>{character.quote}</blockquote>
-            <p className="character-bio">{character.biography}</p>
+            <p>{character.description}</p>
           </div>
         </section>
+        <Footer />
+      </div>
+    )
+  }
 
-        <section className="stat-grid">
-          {character.stats.map((stat) => (
-            <article className="stat-card" key={stat.label}>
-              <span>{stat.label}</span>
-              <strong>{stat.value}</strong>
-            </article>
-          ))}
-        </section>
+  return (
+    <div className={`character-page character-page-${character.id}`}>
+      <button className="back-button" type="button" onClick={onBack}>← Torna ai personaggi</button>
 
-        <div className="character-layout">
-          <div className="character-main-column">
-            <DataBlock title="Privilegi e capacità speciali">
-              <div className="feature-list">
-                {character.features.map((feature) => (
-                  <article className="feature-card" key={feature.name}>
-                    <p>{feature.type}</p>
-                    <h3>{feature.name}</h3>
-                    <span>{feature.description}</span>
-                  </article>
-                ))}
-              </div>
-            </DataBlock>
-
-            <DataBlock title="Incantesimi">
-              <div className="spell-grid">
-                {character.spells.map((spellGroup) => (
-                  <article className="spell-block" key={spellGroup.level}>
-                    <h3>{spellGroup.level}</h3>
-                    <ul>
-                      {spellGroup.list.map((spell) => (
-                        <li key={spell}>{spell}</li>
-                      ))}
-                    </ul>
-                  </article>
-                ))}
-              </div>
-            </DataBlock>
+      <section className="character-hero-profile">
+        <div className="character-hero-image"><img src={character.image} alt={character.name} /></div>
+        <div className="character-hero-content">
+          <p className="kicker">Scheda personaggio</p>
+          <h1>{character.name}</h1>
+          <h2>{character.subtitle}</h2>
+          <div className="character-tags">
+            <span>{character.race}</span><span>{character.classInfo}</span><span>{character.circle}</span><span>{character.alignment}</span>
           </div>
-
-          <aside className="character-side-column">
-            <DataBlock title="Caratteristiche">
-              <div className="ability-grid">
-                {character.abilityScores.map((score) => (
-                  <article className="ability-card" key={score.label}>
-                    <span>{score.label}</span>
-                    <strong>{score.value}</strong>
-                    <em>{score.modifier}</em>
-                  </article>
-                ))}
-              </div>
-            </DataBlock>
-
-            <DataBlock title="Abilità">
-              <div className="skill-list">
-                {character.skills.map((skill) => (
-                  <p key={skill.name}>
-                    <span>{skill.name}</span>
-                    <strong>{skill.value}</strong>
-                  </p>
-                ))}
-              </div>
-            </DataBlock>
-
-            <DataBlock title="Equipaggiamento notevole">
-              <ul className="equipment-list">
-                {character.equipment.map((item) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
-            </DataBlock>
-          </aside>
+          <blockquote>{character.quote}</blockquote>
+          <p className="character-main-description">{character.description}</p>
         </div>
-      </main>
+      </section>
 
+      <section className="character-identity-grid">
+        {character.identity?.map((item) => <article className="identity-card" key={item.label}><span>{item.label}</span><strong>{item.value}</strong></article>)}
+      </section>
+
+      <section className="character-lore-grid">
+        <article className="character-lore-card character-background-card">
+          <div className="character-section-heading"><p>Origini</p><h2>Background</h2></div>
+          {character.background?.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+        </article>
+        <article className="character-lore-card">
+          <div className="character-section-heading"><p>Indole</p><h2>Tratti narrativi</h2></div>
+          <dl className="personality-list">
+            <div><dt>Tratti</dt><dd>{character.personality?.traits}</dd></div>
+            <div><dt>Ideale</dt><dd>{character.personality?.ideal}</dd></div>
+            <div><dt>Legame</dt><dd>{character.personality?.bond}</dd></div>
+            <div><dt>Difetto</dt><dd>{character.personality?.flaw}</dd></div>
+          </dl>
+        </article>
+      </section>
+
+      <CharacterForms forms={character.forms} />
+
+      <section className="character-powers-section">
+        <div className="character-section-heading"><p>Poteri narrativi</p><h2>Stelle, cura e veleno</h2></div>
+        <div className="character-powers-grid">
+          {character.powers?.map((power) => <article className="power-card" key={power.name}><h3>{power.name}</h3><p>{power.text}</p></article>)}
+        </div>
+      </section>
+
+      <section className="character-timeline-section">
+        <div className="character-section-heading"><p>Cronologia</p><h2>Eventi rilevanti</h2></div>
+        <div className="character-timeline">
+          {character.timeline?.map((event) => <article className="character-timeline-item" key={event.title}><span /><div><h3>{event.title}</h3><p>{event.text}</p></div></article>)}
+        </div>
+      </section>
+
+      <section className="character-quotes-section">
+        <div className="character-section-heading"><p>Citazioni</p><h2>Parole memorabili</h2></div>
+        <div className="character-quotes-grid">{character.quotes?.map((quote) => <blockquote key={quote}>{quote}</blockquote>)}</div>
+      </section>
+
+      <CharacterGallery images={character.gallery} />
       <Footer />
     </div>
   )
