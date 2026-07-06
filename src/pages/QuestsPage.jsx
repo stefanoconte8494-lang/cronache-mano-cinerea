@@ -6,7 +6,14 @@ import "../styles/quests.css";
 
 const filters = ["Tutte", "Attive", "Completate", "Personali", "Segrete"];
 
-function QuestsPage({ onNavigate, onHomeClick, onNpcsClick, onSessionsClick, onQuestsClick }) {
+function QuestsPage({
+  onNavigate,
+  onHomeClick,
+  onCharactersClick,
+  onNpcsClick,
+  onSessionsClick,
+  onQuestsClick,
+}) {
   const [search, setSearch] = useState("");
   const [activeFilter, setActiveFilter] = useState("Tutte");
 
@@ -58,6 +65,7 @@ function QuestsPage({ onNavigate, onHomeClick, onNpcsClick, onSessionsClick, onQ
       <Navbar
         activePage="Quest"
         onHomeClick={goHome}
+        onCharactersClick={onCharactersClick}
         onNpcsClick={onNpcsClick}
         onSessionsClick={onSessionsClick}
         onQuestsClick={onQuestsClick}

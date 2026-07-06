@@ -23,35 +23,17 @@ function App() {
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }
 
-  const openHome = () => {
-    setCurrentPage('home')
+  const navigateTo = (page) => {
+    setCurrentPage(page)
     setSelectedCharacterId(null)
     scrollTop()
   }
 
-  const openCharacters = () => {
-    setCurrentPage('characters')
-    setSelectedCharacterId(null)
-    scrollTop()
-  }
-
-  const openNpcs = () => {
-    setCurrentPage('npcs')
-    setSelectedCharacterId(null)
-    scrollTop()
-  }
-
-  const openSessions = () => {
-    setCurrentPage('sessions')
-    setSelectedCharacterId(null)
-    scrollTop()
-  }
-
-  const openQuests = () => {
-    setCurrentPage('quests')
-    setSelectedCharacterId(null)
-    scrollTop()
-  }
+  const openHome = () => navigateTo('home')
+  const openCharacters = () => navigateTo('characters')
+  const openNpcs = () => navigateTo('npcs')
+  const openSessions = () => navigateTo('sessions')
+  const openQuests = () => navigateTo('quests')
 
   const openCharacter = (characterId) => {
     setSelectedCharacterId(characterId)
@@ -59,77 +41,46 @@ function App() {
     scrollTop()
   }
 
+  const navigationProps = {
+    onHomeClick: openHome,
+    onCharactersClick: openCharacters,
+    onNpcsClick: openNpcs,
+    onSessionsClick: openSessions,
+    onQuestsClick: openQuests,
+    onCharacterClick: openCharacter,
+  }
+
   const selectedCharacter = characters.find(
     (character) => character.id === selectedCharacterId,
   )
 
   if (currentPage === 'character' && selectedCharacter) {
-    return <CharacterPage character={selectedCharacter} onBack={openCharacters} />
+    return (
+      <CharacterPage
+        character={selectedCharacter}
+        onBack={openCharacters}
+        {...navigationProps}
+      />
+    )
   }
 
   if (currentPage === 'characters') {
-    return (
-      <CharactersPage
-        onNavigate={openHome}
-        onHomeClick={openHome}
-        onCharactersClick={openCharacters}
-        onNpcsClick={openNpcs}
-        onSessionsClick={openSessions}
-        onQuestsClick={openQuests}
-        onCharacterClick={openCharacter}
-      />
-    )
+    return <CharactersPage onNavigate={openHome} {...navigationProps} />
   }
 
   if (currentPage === 'npcs') {
-    return (
-      <NpcsPage
-        onHomeClick={openHome}
-        onCharactersClick={openCharacters}
-        onNpcsClick={openNpcs}
-        onSessionsClick={openSessions}
-        onQuestsClick={openQuests}
-        onCharacterClick={openCharacter}
-      />
-    )
+    return <NpcsPage {...navigationProps} />
   }
 
   if (currentPage === 'sessions') {
-    return (
-      <SessionsPage
-        onNavigate={openHome}
-        onHomeClick={openHome}
-        onCharactersClick={openCharacters}
-        onNpcsClick={openNpcs}
-        onSessionsClick={openSessions}
-        onQuestsClick={openQuests}
-      />
-    )
+    return <SessionsPage onNavigate={openHome} {...navigationProps} />
   }
 
   if (currentPage === 'quests') {
-    return (
-      <QuestsPage
-        onNavigate={openHome}
-        onHomeClick={openHome}
-        onCharactersClick={openCharacters}
-        onNpcsClick={openNpcs}
-        onSessionsClick={openSessions}
-        onQuestsClick={openQuests}
-      />
-    )
+    return <QuestsPage onNavigate={openHome} {...navigationProps} />
   }
 
-  return (
-    <Home
-      onCharacterClick={openCharacter}
-      onCharactersClick={openCharacters}
-      onHomeClick={openHome}
-      onNpcsClick={openNpcs}
-      onSessionsClick={openSessions}
-      onQuestsClick={openQuests}
-    />
-  )
+  return <Home {...navigationProps} />
 }
 
 export default App

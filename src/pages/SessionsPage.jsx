@@ -4,7 +4,14 @@ import Footer from "../components/Footer";
 import { sessions } from "../data/sessionsData";
 import "../styles/sessions.css";
 
-function SessionsPage({ onNavigate, onHomeClick, onNpcsClick, onSessionsClick }) {
+function SessionsPage({
+  onNavigate,
+  onHomeClick,
+  onCharactersClick,
+  onNpcsClick,
+  onSessionsClick,
+  onQuestsClick,
+}) {
   const [search, setSearch] = useState("");
 
   const filteredSessions = useMemo(() => {
@@ -45,8 +52,10 @@ function SessionsPage({ onNavigate, onHomeClick, onNpcsClick, onSessionsClick })
       <Navbar
         activePage="Sessioni"
         onHomeClick={goHome}
+        onCharactersClick={onCharactersClick}
         onNpcsClick={onNpcsClick}
         onSessionsClick={onSessionsClick}
+        onQuestsClick={onQuestsClick}
       />
 
       <main className="sessions-page">

@@ -5,7 +5,14 @@ import { npcsByFirstAppearance } from '../data/npcsData'
 
 const statusOptions = ['Tutti', 'Vivo', 'Viva', 'Morto', 'Non morta', 'Scomparsa', 'Attivo', 'Nemica']
 
-export default function NpcsPage({ onHomeClick, onCharacterClick, onNpcsClick }) {
+export default function NpcsPage({
+  onHomeClick,
+  onCharactersClick,
+  onNpcsClick,
+  onSessionsClick,
+  onQuestsClick,
+  onCharacterClick,
+}) {
   const [search, setSearch] = useState('')
   const [statusFilter, setStatusFilter] = useState('Tutti')
 
@@ -41,8 +48,10 @@ export default function NpcsPage({ onHomeClick, onCharacterClick, onNpcsClick })
       <Navbar
         activePage="PNG"
         onHomeClick={onHomeClick}
+        onCharactersClick={onCharactersClick}
         onNpcsClick={onNpcsClick}
-        onCharacterClick={onCharacterClick}
+        onSessionsClick={onSessionsClick}
+        onQuestsClick={onQuestsClick}
       />
 
       <main className="archive-page">
