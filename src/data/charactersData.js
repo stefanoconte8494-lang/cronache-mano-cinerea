@@ -4,29 +4,270 @@ import sszaraNotturna from '../assets/characters/sszara/sszara-notturna.png'
 import sszaraStellare from '../assets/characters/sszara/sszara-stellare.png'
 import sszaraArmaturaFinale from '../assets/characters/sszara/sszara-armatura-finale.png'
 import ianArmatura from '../assets/characters/ian/ian-armatura.png'
+import jellyCucina from '../assets/characters/jelly/jelly-cucina.png'
+import jellyBase from '../assets/characters/jelly/jelly-base.png'
+import jellyGala from '../assets/characters/jelly/jelly-gala.png'
+import jellyCombattimento from '../assets/characters/jelly/jelly-combattimento.png'
+import jellyOscuro from '../assets/characters/jelly/jelly-oscuro.png'
 
 export const characters = [
   {
     id: 'jelly',
     name: 'Jelly',
-    title: 'Figlio del grembo di vetro',
-    subtitle: 'Figlio del grembo di vetro',
-    role: 'Membro della Mano Cinerea',
+    title: 'L’esperimento fallito',
+    subtitle: 'L’esperimento fallito',
+    role: 'Creatura psionica nata dalla fusione di molte coscienze',
     status: 'Attivo',
     symbol: '⊙',
     appearanceOrder: 1,
-    quote: 'Ogni frammento nasconde una forma.',
-    description: 'Presenza enigmatica della compagnia, legata a misteri ancora da decifrare.',
+    player: 'Mirko F.',
+    race: 'Da completare',
+    classInfo: 'Ladro · Lama dell’Anima',
+    subclass: 'Lama dell’Anima',
+    alignment: 'Da definire',
+    firstAppearance: 'Da completare',
+    image: jellyCombattimento,
+    portrait: jellyBase,
+    quote: 'Nato dalla morte di molti. Alla ricerca della pace di tutti.',
+    description:
+      'Jelly è una creatura nata da un esperimento fallito: un corpo impossibile, attraversato da molte memorie e da poteri psionici che prendono forma in lame di pura energia. Dentro la Mano Cinerea è insieme ombra, lama, cuoco e sopravvissuto.',
     identity: [
+      { label: 'Giocatore', value: 'Mirko F.' },
+      { label: 'Classe', value: 'Ladro' },
+      { label: 'Sottoclasse', value: 'Lama dell’Anima' },
       { label: 'Stato', value: 'Attivo' },
-      { label: 'Ruolo', value: 'Membro della Mano Cinerea' },
-      { label: 'Informazioni', value: 'Da completare' },
+      { label: 'Ruolo', value: 'Ombra psionica' },
+      { label: 'Tema', value: 'Memorie fuse' },
     ],
+    stats: {
+      armorClass: 21,
+      hitPoints: 'Da completare',
+      level: 'Da completare',
+      proficiencyBonus: 'Da completare',
+      initiative: 'Da completare',
+      speed: 'Da completare',
+      passivePerception: 'Da completare',
+      classes: [
+        { name: 'Ladro', detail: 'Lama dell’Anima', level: 'Da completare' },
+      ],
+      skills: [
+        { name: 'Rapidità di Mano', value: '+13' },
+        { name: 'Furtività', value: '+13' },
+        { name: 'Percezione', value: '+9' },
+        { name: 'Indagare', value: '+7' },
+        { name: 'Acrobazia', value: '+10' },
+        { name: 'Intuizione', value: 'Da completare' },
+      ],
+      languages: ['Da completare'],
+    },
+    abilities: [
+      {
+        name: 'Modellare sé stesso',
+        value: 'Identità mutabile',
+        text: 'Jelly non è una creatura del tutto stabile. La sua forma può piegarsi, contrarsi e adattarsi come se il corpo fosse ancora in cerca di una versione definitiva.',
+      },
+      {
+        name: 'Lame Psichiche',
+        value: 'Poteri psionici',
+        text: 'Le sue armi non sono sempre oggetti fisici: talvolta sono frammenti di pensiero condensato, lame viola che feriscono corpo e mente.',
+      },
+      {
+        name: 'Teletrasporto Psichico',
+        value: 'Movimento impossibile',
+        text: 'Jelly può muoversi attraverso uno strappo psionico, apparendo dove il nemico non si aspetta di trovarlo.',
+      },
+      {
+        name: 'Sussurri Psichici',
+        value: 'Legame mentale',
+        text: 'Le voci che abitano Jelly possono diventare ponte, messaggio e inquietudine condivisa.',
+      },
+      {
+        name: 'Attacco Furtivo',
+        value: 'Colpo decisivo',
+        text: 'Quando trova una fessura nella guardia nemica, Jelly colpisce con precisione crudele.',
+      },
+      {
+        name: 'Elusione',
+        value: 'Sopravvivenza',
+        text: 'Dove altri vengono travolti, Jelly scivola via come una macchia d’ombra viola.',
+      },
+    ],
+    relics: [
+      {
+        name: 'Amplificatore Psichico +2',
+        category: 'Focus psionico',
+        origin: 'Da completare',
+        effects: [
+          'Potenzia le capacità psichiche di Jelly.',
+          'Dettagli meccanici da completare con la scheda aggiornata.',
+        ],
+      },
+      {
+        name: 'Lama di Ossidiana',
+        category: 'Arma distintiva',
+        origin: 'Da completare',
+        effects: [
+          'Arma legata al lato più oscuro e silenzioso di Jelly.',
+          'Dettagli narrativi e meccanici da completare.',
+        ],
+      },
+      {
+        name: 'Mantello di Varyn Ombrafredda',
+        category: 'Reliquia',
+        origin: 'Da completare',
+        effects: [
+          'Mantello legato a ombra, freddo e furtività.',
+          'Dettagli da inserire quando il giocatore li condividerà.',
+        ],
+      },
+      {
+        name: 'Frammento Meteorico',
+        category: 'Frammento instabile',
+        origin: 'Ottenuto durante gli eventi legati ai Caduti e ai frammenti del non-luogo.',
+        effects: [
+          '+1 alla Classe Armatura se applicato ad armatura o pelle.',
+          'Può essere attivato volontariamente per 3 round.',
+          'Alla fine dell’effetto il portatore contrae automaticamente il Morbo Meteoritico.',
+        ],
+        disease: [
+          {
+            stage: 'Distorsione del Vuoto',
+            text: 'Quando il frammento risuona con la natura da ladro di Jelly, la sua presenza diventa più difficile da seguire: attacchi più letali, movimenti impossibili e aperture improvvise.',
+          },
+          {
+            stage: 'Morbo Meteoritico',
+            text: 'Il potere del frammento non è mai gratuito. Dopo l’attivazione resta il rischio della contaminazione e della consunzione.',
+          },
+        ],
+      },
+      {
+        name: 'Bacchetta Cura Ferite',
+        category: 'Oggetto magico',
+        origin: 'Da completare',
+        effects: [
+          'Risorsa di supporto e sopravvivenza.',
+          'Dettagli meccanici da completare.',
+        ],
+      },
+    ],
+    ultimate: {
+      name: 'Distorsione del Vuoto',
+      subtitle: 'Risonanza del Ladro',
+      text: 'Quando Jelly sfrutta il frammento meteorico, il suo corpo e le sue lame sembrano piegarsi fuori dal mondo per pochi istanti.',
+      effects: [
+        'Vantaggio agli attacchi durante l’attivazione.',
+        'Disimpegno gratuito.',
+        'Possibilità di sfruttare un attacco furtivo aggiuntivo secondo le regole concordate al tavolo.',
+      ],
+    },
     backgroundSections: [
-      { title: 'Archivio incompleto', text: 'La pagina di Jelly è stata predisposta. Il giocatore potrà aggiungere background, capacità, oggetti, cronologia e galleria quando vorrà condividere nuove informazioni.' },
+      {
+        title: 'Il laboratorio',
+        text: 'Jelly non nasce come gli altri. È il risultato di un esperimento, un tentativo di fondere coscienze e residui di avventurieri morti in qualcosa che nessuno avrebbe più dovuto chiamare persona.',
+      },
+      {
+        title: 'Le mille memorie',
+        text: 'Dentro di lui sopravvivono frammenti di altri: ricordi, paure, competenze, gusti, voci. Non tutto ciò che Jelly sa appartiene davvero a Jelly.',
+      },
+      {
+        title: 'Il barile',
+        text: 'Per molto tempo è stato trattato come un’anomalia da nascondere, trasportare, vendere o temere. La sua libertà non è stata concessa: è stata strappata.',
+      },
+      {
+        title: 'L’incontro con Ian',
+        text: 'Ian è stato il primo a incontrarlo non soltanto come mostro o oggetto, ma come qualcuno a cui rivolgere una parola. Da lì nasce una delle radici più importanti della sua presenza nella Mano Cinerea.',
+      },
+    ],
+    forms: [
+      {
+        id: 'cucina',
+        name: 'Jelly cuoco',
+        subtitle: 'Porchetta, coltelli e troppe braccia',
+        image: jellyCucina,
+        theme: 'gala',
+        description:
+          'Una delle immagini più strane e memorabili di Jelly: non solo lama e ombra, ma anche creatura capace di trasformare la cucina in un campo di battaglia organizzato.',
+      },
+      {
+        id: 'base',
+        name: 'Forma base',
+        subtitle: 'Cappuccio, occhi luminosi e lame psioniche',
+        image: jellyBase,
+        theme: 'night',
+        description:
+          'La forma più riconoscibile di Jelly: piccola, rapida, innaturale, con occhi luminosi e lame viola generate dal potere psichico.',
+      },
+      {
+        id: 'gala',
+        name: 'Ballo in maschera',
+        subtitle: 'Eleganza impossibile',
+        image: jellyGala,
+        theme: 'gala',
+        description:
+          'Durante il ballo, Jelly diventa una figura elegante e inquietante: maschera metallica, abiti viola e una presenza impossibile da ignorare.',
+      },
+      {
+        id: 'combattimento',
+        name: 'Assalto psionico',
+        subtitle: 'La danza delle lame',
+        image: jellyCombattimento,
+        theme: 'night',
+        description:
+          'Jelly in battaglia è movimento, lama e scintilla psichica. Colpisce dove la guardia è più debole e scompare prima che il nemico capisca cosa sia accaduto.',
+      },
+      {
+        id: 'oscuro',
+        name: 'Forma oscura',
+        subtitle: 'La fame dietro il cappuccio',
+        image: jellyOscuro,
+        theme: 'night',
+        description:
+          'Quando il lato più feroce emerge, Jelly appare meno come un ladro e più come un incubo compatto, sporco di sangue e luce viola.',
+      },
     ],
     timeline: [
-      { title: 'Cronologia in aggiornamento', subtitle: 'Voce provvisoria', text: 'Gli eventi principali verranno collegati alle sessioni quando saranno disponibili le informazioni del giocatore.' },
+      {
+        title: 'Distruzione del laboratorio',
+        subtitle: 'Origine dell’esperimento',
+        text: 'La nascita di Jelly è legata a un laboratorio, a un fallimento e alla morte di molti.',
+      },
+      {
+        title: 'Le memorie',
+        subtitle: 'Coscienze fuse',
+        text: 'La creatura che emerge non è una singola voce, ma un insieme instabile di ricordi e istinti.',
+      },
+      {
+        title: 'La cattura',
+        subtitle: 'Il barile',
+        text: 'Jelly viene nascosto, trasportato e trattato come qualcosa da contenere.',
+      },
+      {
+        title: 'Ian',
+        subtitle: 'Il primo legame',
+        text: 'L’incontro con Ian segna il passaggio da mostro trovato a compagno possibile.',
+      },
+      {
+        title: 'La Mano Cinerea',
+        subtitle: 'Una nuova famiglia imperfetta',
+        text: 'Jelly entra nella compagnia portando fame, lame psioniche, cucina e troppe memorie.',
+      },
+      {
+        title: 'Raid meteorico',
+        subtitle: 'Il frammento',
+        text: 'Il potere dei Caduti e del non-luogo aggiunge un nuovo rischio alla sua natura già instabile.',
+      },
+    ],
+    gallery: [
+      { id: 'cucina', title: 'Jelly cuoco', image: jellyCucina, description: 'Jelly in cucina, tra fuoco, coltelli e porchetta.' },
+      { id: 'base', title: 'Forma base', image: jellyBase, description: 'La forma classica con cappuccio e lame psioniche.' },
+      { id: 'gala', title: 'Ballo in maschera', image: jellyGala, description: 'Jelly in abito elegante durante una serata di gala.' },
+      { id: 'combattimento', title: 'Assalto psionico', image: jellyCombattimento, description: 'Jelly combatte contro due scheletri con lame viola.' },
+      { id: 'oscuro', title: 'Forma oscura', image: jellyOscuro, description: 'Jelly in una variante feroce, sanguinaria e inquietante.' },
+    ],
+    quotes: [
+      'Piacere... Jelly.',
+      'Nato dalla morte di molti. Alla ricerca della pace di tutti.',
+      'Non tutte le voci nella mia testa sono mie.',
     ],
   },
   {

@@ -103,3 +103,87 @@
   .character-identity-grid, .tech-main-grid, .tech-detail-grid, .abilities-grid, .relics-grid, .background-chapters, .character-gallery-grid { grid-template-columns: 1fr; }
   .character-hero-image, .character-profile-image, .forms-image-frame { min-height: 420px; }
 }
+
+
+/* VERSIONE 0.70 - PALETTE JELLY */
+
+.character-page-jelly::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 15% 18%, rgba(127, 92, 255, 0.18), transparent 28%),
+    radial-gradient(circle at 82% 20%, rgba(92, 49, 155, 0.16), transparent 24%),
+    radial-gradient(circle at 50% 100%, rgba(20, 8, 42, 0.22), transparent 34%);
+  z-index: -1;
+}
+
+.character-page-jelly .character-hero-profile,
+.character-page-jelly .character-tech-section,
+.character-page-jelly .character-abilities-section,
+.character-page-jelly .character-relics-section,
+.character-page-jelly .character-background-section,
+.character-page-jelly .character-forms,
+.character-page-jelly .character-timeline-section,
+.character-page-jelly .character-quotes-section,
+.character-page-jelly .character-gallery-section {
+  border-color: rgba(127, 92, 255, 0.32);
+  background:
+    radial-gradient(circle at top right, rgba(127, 92, 255, 0.12), transparent 36%),
+    rgba(12, 8, 18, 0.88);
+}
+
+.character-page-jelly .kicker,
+.character-page-jelly .character-section-heading p,
+.character-page-jelly .relic-category,
+.character-page-jelly .form-subtitle {
+  color: #b9a2ff;
+}
+
+.character-page-jelly .character-section-heading h2,
+.character-page-jelly .character-hero-content h2,
+.character-page-jelly .tech-detail-grid h3,
+.character-page-jelly .ability-card h3,
+.character-page-jelly .relic-card h3,
+.character-page-jelly .background-chapters h3,
+.character-page-jelly .character-timeline-item h3,
+.character-page-jelly .gallery-lightbox-panel h3 {
+  color: #d8c9ff;
+}
+
+.character-page-jelly .character-tags span,
+.character-page-jelly .skill-pills span,
+.character-page-jelly .form-tab.active,
+.character-page-jelly .form-tab:hover {
+  border-color: rgba(127, 92, 255, 0.65);
+  color: #ded3ff;
+  box-shadow: 0 0 22px rgba(127, 92, 255, 0.18);
+}
+
+.character-page-jelly .character-hero-content blockquote,
+.character-page-jelly .character-profile-content blockquote,
+.character-page-jelly .character-quotes-grid blockquote,
+.character-page-jelly .form-description-card {
+  border-left-color: #7f5cff;
+}
+
+.character-page-jelly .ultimate-card {
+  border-color: rgba(127, 92, 255, 0.56);
+  background:
+    radial-gradient(circle at 20% 0%, rgba(127, 92, 255, 0.2), transparent 28%),
+    linear-gradient(135deg, rgba(26, 15, 45, 0.94), rgba(6, 4, 10, 0.94));
+}
+
+.character-page-jelly .ultimate-effects strong {
+  color: #d8c9ff;
+}
+
+.character-page-jelly .character-timeline-item span {
+  background: #7f5cff;
+  box-shadow: 0 0 18px rgba(127, 92, 255, 0.55);
+}
+
+.tech-main-grid {
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+}
