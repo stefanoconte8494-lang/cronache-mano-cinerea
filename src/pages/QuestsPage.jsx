@@ -13,6 +13,7 @@ function QuestsPage({
   onNpcsClick,
   onSessionsClick,
   onQuestsClick,
+  onCodexClick,
 }) {
   const [search, setSearch] = useState("");
   const [activeFilter, setActiveFilter] = useState("Tutte");
@@ -69,6 +70,7 @@ function QuestsPage({
         onNpcsClick={onNpcsClick}
         onSessionsClick={onSessionsClick}
         onQuestsClick={onQuestsClick}
+        onCodexClick={onCodexClick}
       />
 
       <main className="quests-page">

@@ -11,6 +11,7 @@ export default function NpcsPage({
   onNpcsClick,
   onSessionsClick,
   onQuestsClick,
+  onCodexClick,
   onCharacterClick,
 }) {
   const [search, setSearch] = useState('')
@@ -52,6 +53,7 @@ export default function NpcsPage({
         onNpcsClick={onNpcsClick}
         onSessionsClick={onSessionsClick}
         onQuestsClick={onQuestsClick}
+        onCodexClick={onCodexClick}
       />
 
       <main className="archive-page">

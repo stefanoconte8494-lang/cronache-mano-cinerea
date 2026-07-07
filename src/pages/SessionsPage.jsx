@@ -39,6 +39,7 @@ function SessionsPage({
   onNpcsClick,
   onSessionsClick,
   onQuestsClick,
+  onCodexClick,
 }) {
   const [search, setSearch] = useState('')
 
@@ -90,6 +91,7 @@ function SessionsPage({
         onNpcsClick={onNpcsClick}
         onSessionsClick={onSessionsClick}
         onQuestsClick={onQuestsClick}
+        onCodexClick={onCodexClick}
       />
 
       <main className="sessions-page">

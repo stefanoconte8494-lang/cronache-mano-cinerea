@@ -14,6 +14,7 @@ export default function Home({
   onNpcsClick,
   onSessionsClick,
   onQuestsClick,
+  onCodexClick,
 }) {
   return (
     <div className="site-shell">
@@ -24,6 +25,7 @@ export default function Home({
         onNpcsClick={onNpcsClick}
         onSessionsClick={onSessionsClick}
         onQuestsClick={onQuestsClick}
+        onCodexClick={onCodexClick}
       />
 
       <HeroBanner />

@@ -26,6 +26,7 @@ function CharactersPage({
   onNpcsClick,
   onSessionsClick,
   onQuestsClick,
+  onCodexClick,
   onCharacterClick,
 }) {
   const goHome = () => {
@@ -50,6 +51,7 @@ function CharactersPage({
         onNpcsClick={onNpcsClick}
         onSessionsClick={onSessionsClick}
         onQuestsClick={onQuestsClick}
+        onCodexClick={onCodexClick}
       />
 
       <main className="characters-page">
