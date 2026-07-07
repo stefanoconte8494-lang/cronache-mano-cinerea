@@ -9,6 +9,13 @@ import jellyBase from '../assets/characters/jelly/jelly-base.png'
 import jellyGala from '../assets/characters/jelly/jelly-gala.png'
 import jellyCombattimento from '../assets/characters/jelly/jelly-combattimento.png'
 import jellyOscuro from '../assets/characters/jelly/jelly-oscuro.png'
+import kaeltharImage from '../assets/characters/kaelthar/kaelthar-lunachiara.png'
+import miaImage from '../assets/characters/mia/mia.png'
+import zeroImage from '../assets/characters/zero/zero.png'
+import brewenGiant from '../assets/characters/brewen/brewen-gigante.png'
+import saphiraImage from '../assets/characters/saphira/saphira.png'
+import saarielImage from '../assets/characters/saariel/saariel.png'
+import saarielBase from '../assets/characters/saariel/saariel-base.png'
 
 export const characters = [
   {
@@ -22,10 +29,10 @@ export const characters = [
     appearanceOrder: 1,
     player: 'Mirko F.',
     race: 'Plasmoide',
-    classInfo: 'Ladro · Lama dell’Anima',
+    classInfo: 'Ladro 8° livello · Lama dell’Anima',
     subclass: 'Lama dell’Anima',
     alignment: 'Neutrale Puro',
-    firstAppearance: '1a sessione della campagna',
+    firstAppearance: 'Da completare',
     image: jellyCombattimento,
     portrait: jellyBase,
     quote: 'Nato dalla morte di molti. Alla ricerca della pace di tutti.',
@@ -33,20 +40,19 @@ export const characters = [
       'Jelly è una creatura nata da un esperimento fallito: un corpo impossibile, attraversato da molte memorie e da poteri psionici che prendono forma in lame di pura energia. Dentro la Mano Cinerea è insieme ombra, lama, cuoco e sopravvissuto.',
     identity: [
       { label: 'Giocatore', value: 'Mirko F.' },
-      { label: 'Classe', value: 'Ladro 8°' },
+      { label: 'Razza', value: 'Plasmoide' },
+      { label: 'Classe', value: 'Ladro 8° livello' },
       { label: 'Sottoclasse', value: 'Lama dell’Anima' },
-      { label: 'Stato', value: 'Attivo' },
+      { label: 'Allineamento', value: 'Neutrale Puro' },
       { label: 'Ruolo', value: 'Ombra psionica' },
-      { label: 'Tema', value: 'Memorie fuse' },
     ],
     stats: {
       armorClass: 21,
       hitPoints: 52,
       level: 8,
-      proficiencyBonus: +3,
-      initiative: +5,
-      speed: 9,
-      darkvision: 18,
+      proficiencyBonus: '+3',
+      initiative: '+5',
+      speed: '9 m',
       passivePerception: 19,
       classes: [
         { name: 'Ladro', detail: 'Lama dell’Anima', level: 8 },
@@ -54,10 +60,10 @@ export const characters = [
       skills: [
         { name: 'Acrobazia', value: '+10' },
         { name: 'Arcano', value: '+4' },
-        { name: 'Furtività', value: '+13' },
         { name: 'Indagare', value: '+7' },
         { name: 'Percezione', value: '+9' },
         { name: 'Rapidità di Mano', value: '+13' },
+        { name: 'Furtività', value: '+13' },
       ],
       languages: ['Comune'],
     },
@@ -139,15 +145,6 @@ export const characters = [
             stage: 'Morbo Meteoritico',
             text: 'Il potere del frammento non è mai gratuito. Dopo l’attivazione resta il rischio della contaminazione e della consunzione.',
           },
-        ],
-      },
-      {
-        name: 'Bacchetta Cura Ferite',
-        category: 'Oggetto magico',
-        origin: 'Da completare',
-        effects: [
-          'Risorsa di supporto e sopravvivenza.',
-          'Dettagli meccanici da completare.',
         ],
       },
     ],
@@ -233,29 +230,9 @@ export const characters = [
         text: 'La nascita di Jelly è legata a un laboratorio, a un fallimento e alla morte di molti.',
       },
       {
-        title: 'Le memorie',
-        subtitle: 'Coscienze fuse',
-        text: 'La creatura che emerge non è una singola voce, ma un insieme instabile di ricordi e istinti.',
-      },
-      {
-        title: 'La cattura',
-        subtitle: 'Il barile',
-        text: 'Jelly viene nascosto, trasportato e trattato come qualcosa da contenere.',
-      },
-      {
-        title: 'Ian',
-        subtitle: 'Il primo legame',
-        text: 'L’incontro con Ian segna il passaggio da mostro trovato a compagno possibile.',
-      },
-      {
         title: 'La Mano Cinerea',
         subtitle: 'Una nuova famiglia imperfetta',
         text: 'Jelly entra nella compagnia portando fame, lame psioniche, cucina e troppe memorie.',
-      },
-      {
-        title: 'Raid meteorico',
-        subtitle: 'Il frammento',
-        text: 'Il potere dei Caduti e del non-luogo aggiunge un nuovo rischio alla sua natura già instabile.',
       },
     ],
     gallery: [
@@ -284,8 +261,8 @@ export const characters = [
     race: 'Umano',
     classInfo: 'Guerriero 8 · Cavaliere dell’Eco',
     subclass: 'Cavaliere dell’Eco',
-    alignment: 'Neutrale Buono',
-    firstAppearance: '1a sessione della campagna',
+    alignment: 'Da definire',
+    firstAppearance: 'Da completare',
     image: ianArmatura,
     portrait: ianArmatura,
     quote: 'Alcune strade non si scelgono: ti riconoscono.',
@@ -351,18 +328,41 @@ export const characters = [
     status: 'Attivo',
     symbol: '⚒',
     appearanceOrder: 3,
+    image: brewenGiant,
+    portrait: brewenGiant,
     quote: 'Prima si regge il colpo. Poi si decide cosa farne.',
-    description: 'Forza stabile della compagnia, tra alchimia, resistenza e istinto protettivo.',
+    description:
+      'Brewen Dolce Mosto è una delle presenze più solide della Mano Cinerea. Nell’ultima sessione ha assunto una taglia enorme, diventando una vera forza d’urto sul campo.',
     identity: [
       { label: 'Stato', value: 'Attivo' },
       { label: 'Ruolo', value: 'Membro della Mano Cinerea' },
-      { label: 'Informazioni', value: 'Da completare' },
+      { label: 'Aspetto noto', value: 'Taglia enorme' },
     ],
     backgroundSections: [
-      { title: 'Archivio incompleto', text: 'La pagina di Brewen è stata predisposta. Il giocatore potrà aggiungere background, capacità, oggetti, cronologia e galleria quando vorrà condividere nuove informazioni.' },
+      {
+        title: 'Archivio in aggiornamento',
+        text: 'La pagina di Brewen è stata predisposta con la sua immagine e una prima sezione narrativa. Il giocatore potrà aggiungere classe, statistiche, capacità e background quando vorrà.',
+      },
+    ],
+    forms: [
+      {
+        id: 'gigante',
+        name: 'Forma enorme',
+        subtitle: 'Brewen nella sua manifestazione più imponente',
+        image: brewenGiant,
+        theme: 'ivory',
+        description: 'Una forma gigantesca e devastante, emersa nell’ultima sessione e già entrata nelle cronache della compagnia.',
+      },
+    ],
+    gallery: [
+      { id: 'gigante', title: 'Brewen enorme', image: brewenGiant, description: 'Brewen nella forma di taglia enorme.' },
     ],
     timeline: [
-      { title: 'Cronologia in aggiornamento', subtitle: 'Voce provvisoria', text: 'Gli eventi principali verranno collegati alle sessioni quando saranno disponibili le informazioni del giocatore.' },
+      {
+        title: 'Ultima sessione',
+        subtitle: 'Taglia enorme',
+        text: 'Brewen manifesta una forma gigantesca, trasformandosi in un pilastro offensivo e difensivo del gruppo.',
+      },
     ],
   },
   {
@@ -374,18 +374,41 @@ export const characters = [
     status: 'Attivo',
     symbol: '✦',
     appearanceOrder: 4,
+    image: zeroImage,
+    portrait: zeroImage,
     quote: 'Ciò che mi ha creato non decide ciò che diventerò.',
-    description: 'Protetto di Gertrude e figura legata a poteri alieni, sciami e segreti non ancora chiariti.',
+    description:
+      'Zerion “Zero” Zaulyl è legato a sciami, presenze aliene e poteri che si muovono ai margini della comprensione. La sua figura unisce eleganza, inquietudine e una forza arcana ancora da raccontare.',
     identity: [
       { label: 'Stato', value: 'Attivo' },
       { label: 'Ruolo', value: 'Membro della Mano Cinerea' },
-      { label: 'Informazioni', value: 'Da completare' },
+      { label: 'Tema', value: 'Sciame e potere viola' },
     ],
     backgroundSections: [
-      { title: 'Archivio incompleto', text: 'La pagina di Zero è stata predisposta. Il giocatore potrà aggiungere background, capacità, oggetti, cronologia e galleria quando vorrà condividere nuove informazioni.' },
+      {
+        title: 'Archivio in aggiornamento',
+        text: 'La pagina di Zero è stata predisposta con immagine, galleria e una prima identità narrativa. I dettagli tecnici e il background completo saranno aggiunti quando il giocatore li condividerà.',
+      },
+    ],
+    forms: [
+      {
+        id: 'zero',
+        name: 'Zero',
+        subtitle: 'Lo sciame e la musica',
+        image: zeroImage,
+        theme: 'night',
+        description: 'Zero appare come una figura elegante e pericolosa, circondata da energia viola e presenze simili a insetti.',
+      },
+    ],
+    gallery: [
+      { id: 'zero', title: 'Zero', image: zeroImage, description: 'Zerion “Zero” Zaulyl con arpa, mantello e scie viola.' },
     ],
     timeline: [
-      { title: 'Cronologia in aggiornamento', subtitle: 'Voce provvisoria', text: 'Gli eventi principali verranno collegati alle sessioni quando saranno disponibili le informazioni del giocatore.' },
+      {
+        title: 'Cronologia in aggiornamento',
+        subtitle: 'Voce provvisoria',
+        text: 'Gli eventi principali di Zero verranno aggiunti man mano che saranno completati i riassunti mancanti.',
+      },
     ],
   },
   {
@@ -425,10 +448,10 @@ export const characters = [
         { name: 'Chierica', detail: 'Dominio della Vita', level: 6 },
       ],
       skills: [
-        { name: 'Furtività', value: '+5' },
-        { name: 'Intuizione', value: '+7' },
         { name: 'Percezione', value: '+7' },
+        { name: 'Intuizione', value: '+7' },
         { name: 'Sopravvivenza', value: '+7' },
+        { name: 'Furtività', value: '+5' },
       ],
     },
     abilities: [
@@ -505,23 +528,159 @@ export const characters = [
     status: 'Attiva',
     symbol: '☀',
     appearanceOrder: 6,
+    image: miaImage,
+    portrait: miaImage,
     quote: 'Ogni nuovo sangue cambia il battito della compagnia.',
-    description: 'Mia entra nella Mano Cinerea durante la Sessione 40, portando una nuova presenza all’interno del gruppo.',
+    description:
+      'Mia entra nella Mano Cinerea durante la Sessione 40, portando una nuova presenza all’interno del gruppo. La sua immagine racconta una figura cupa, attenta e immersa nei mercati e nelle ombre delle città portuali.',
     identity: [
       { label: 'Stato', value: 'Attiva' },
       { label: 'Ruolo', value: 'Membro della Mano Cinerea' },
-      { label: 'Informazioni', value: 'Da completare' },
+      { label: 'Prima apparizione', value: 'Sessione 40' },
     ],
     backgroundSections: [
-      { title: 'Archivio incompleto', text: 'La pagina di Mia è stata predisposta. Il giocatore potrà aggiungere background, capacità, oggetti, cronologia e galleria quando vorrà condividere nuove informazioni.' },
+      {
+        title: 'Archivio in aggiornamento',
+        text: 'La pagina di Mia è stata predisposta con immagine e descrizione iniziale. Background, statistiche e capacità saranno aggiunti quando saranno disponibili.',
+      },
+    ],
+    forms: [
+      {
+        id: 'mia',
+        name: 'Mia',
+        subtitle: 'Nuovo sangue della compagnia',
+        image: miaImage,
+        theme: 'night',
+        description: 'Mia appare come una figura silenziosa e determinata, avvolta da abiti scuri e da un’atmosfera urbana e misteriosa.',
+      },
+    ],
+    gallery: [
+      { id: 'mia', title: 'Mia', image: miaImage, description: 'Mia tra le strade e i mercati.' },
     ],
     timeline: [
-      { title: 'Sessione 40', subtitle: 'Ingresso nella Mano Cinerea', text: 'Mia entra nel gruppo insieme a Sszara.' },
+      {
+        title: 'Sessione 40',
+        subtitle: 'Ingresso nella Mano Cinerea',
+        text: 'Mia entra nel gruppo insieme a Sszara.',
+      },
     ],
   },
-  { id: 'kaelthar', name: 'Kaelthar Lunachiara', title: 'Scelto da Damocle', subtitle: 'Scelto da Damocle', role: 'Ex membro', status: 'Ex membro', symbol: '✧', appearanceOrder: 7, quote: 'Alcune strade restano nella cronaca anche quando chi le percorre si allontana.', description: 'Un tempo parte della Mano Cinerea, ora non più tra i membri attivi.' },
-  { id: 'saphira', name: 'Saphira', title: 'Giovane avventuriera dalla spada affilata', subtitle: 'Giovane avventuriera dalla spada affilata', role: 'Ex membro', status: 'Ex membro', symbol: '⚔', appearanceOrder: 8, quote: 'La lama non dimentica il primo sangue.', description: 'Figura del passato della compagnia, ricordata tra gli ex membri.' },
-  { id: 'saariel', name: 'Saariel', title: 'Giustiziere degli dèi', subtitle: 'Giustiziere degli dèi', role: 'Ex membro', status: 'Ex membro', symbol: '☼', appearanceOrder: 9, quote: 'Il giudizio non sempre arriva dall’alto.', description: 'Legato a misteri, lame e giudizi che ancora riverberano nella cronaca.' },
+  {
+    id: 'kaelthar',
+    name: 'Kaelthar Lunachiara',
+    title: 'Scelto da Damocle',
+    subtitle: 'Scelto da Damocle',
+    role: 'Ex membro',
+    status: 'Ex membro',
+    symbol: '✧',
+    appearanceOrder: 7,
+    image: kaeltharImage,
+    portrait: kaeltharImage,
+    quote: 'Alcune strade restano nella cronaca anche quando chi le percorre si allontana.',
+    description:
+      'Kaelthar Lunachiara è stato parte della Mano Cinerea e rimane una figura importante delle cronache, legata a Damocle, alla lama di Saariel e a scelte che hanno lasciato conseguenze nel gruppo.',
+    identity: [
+      { label: 'Stato', value: 'Ex membro' },
+      { label: 'Titolo', value: 'Scelto da Damocle' },
+      { label: 'Legame', value: 'Damocle' },
+    ],
+    backgroundSections: [
+      {
+        title: 'Archivio in aggiornamento',
+        text: 'La pagina di Kaelthar è stata predisposta con immagine e descrizione iniziale. Verrà completata con background e cronologia quando saranno raccolte le informazioni definitive.',
+      },
+    ],
+    forms: [
+      {
+        id: 'kaelthar',
+        name: 'Kaelthar Lunachiara',
+        subtitle: 'Lama, libro e potere',
+        image: kaeltharImage,
+        theme: 'ivory',
+        description: 'Kaelthar appare come una figura lunare e arcana, divisa tra lama, conoscenza e poteri pericolosi.',
+      },
+    ],
+    gallery: [
+      { id: 'kaelthar', title: 'Kaelthar Lunachiara', image: kaeltharImage, description: 'Kaelthar con lama e libro arcano.' },
+    ],
+  },
+  {
+    id: 'saphira',
+    name: 'Saphira',
+    title: 'Giovane avventuriera dalla spada affilata',
+    subtitle: 'Giovane avventuriera dalla spada affilata',
+    role: 'Ex membro',
+    status: 'Ex membro',
+    symbol: '⚔',
+    appearanceOrder: 8,
+    image: saphiraImage,
+    portrait: saphiraImage,
+    quote: 'La lama non dimentica il primo sangue.',
+    description:
+      'Saphira è una figura del passato della compagnia, ricordata tra gli ex membri. La sua immagine mostra una combattente giovane, armata e avvolta da un mantello stellato.',
+    identity: [
+      { label: 'Stato', value: 'Ex membro' },
+      { label: 'Ruolo', value: 'Avventuriera' },
+      { label: 'Tema', value: 'Spada e stelle' },
+    ],
+    backgroundSections: [
+      {
+        title: 'Archivio in aggiornamento',
+        text: 'La pagina di Saphira è stata predisposta con immagine e descrizione iniziale.',
+      },
+    ],
+    gallery: [
+      { id: 'saphira', title: 'Saphira', image: saphiraImage, description: 'Saphira con spada e mantello stellato.' },
+    ],
+  },
+  {
+    id: 'saariel',
+    name: 'Saariel',
+    title: 'Giustiziere degli dèi',
+    subtitle: 'Giustiziere degli dèi',
+    role: 'Ex membro',
+    status: 'Ex membro',
+    symbol: '☼',
+    appearanceOrder: 9,
+    image: saarielImage,
+    portrait: saarielImage,
+    quote: 'Il giudizio non sempre arriva dall’alto.',
+    description:
+      'Saariel è una figura legata a misteri, lame e giudizi divini. La sua presenza nelle cronache resta cupa e solenne.',
+    identity: [
+      { label: 'Stato', value: 'Ex membro' },
+      { label: 'Titolo', value: 'Giustiziere degli dèi' },
+      { label: 'Tema', value: 'Ali nere e giudizio' },
+    ],
+    backgroundSections: [
+      {
+        title: 'Archivio in aggiornamento',
+        text: 'La pagina di Saariel è stata predisposta con immagine, forma base e forma oscura.',
+      },
+    ],
+    forms: [
+      {
+        id: 'base',
+        name: 'Saariel base',
+        subtitle: 'Prima della caduta',
+        image: saarielBase,
+        theme: 'ivory',
+        description: 'Una forma più umana e trattenuta, ancora legata alla strada e alle rovine di Cinderlight.',
+      },
+      {
+        id: 'giudiziere',
+        name: 'Giustiziere degli dèi',
+        subtitle: 'Ali nere e tempesta',
+        image: saarielImage,
+        theme: 'night',
+        description: 'La forma più cupa e solenne: ali nere, armatura, lama e giudizio.',
+      },
+    ],
+    gallery: [
+      { id: 'base', title: 'Saariel base', image: saarielBase, description: 'Saariel presso Cinderlight.' },
+      { id: 'giudiziere', title: 'Giustiziere degli dèi', image: saarielImage, description: 'Saariel con ali nere e armatura.' },
+    ],
+  },
 ]
 
 export const activeCharacters = characters.filter((character) => character.status === 'Attivo' || character.status === 'Attiva')
