@@ -318,6 +318,52 @@ export const sessions = [
     places: ['Strade innevate', 'Dimora di Ian'],
     tags: ['Ripartenza', 'Sszara', 'Mia']
   },
+  {
+  id: 'session-42',
+  number: 42,
+  title: 'Il Ballo dei Silverhart',
+  arc: 'Chiacchiera del Vicolo',
+  date: '01/07/2026',
+  nextSession: '08/07/2026',
+  introduction:
+    'La Mano Cinerea si prepara ad affrontare una missione diversa da qualunque cosa abbia mai fatto: non una rovina, non un campo di battaglia, ma un ballo in maschera organizzato dalla potente famiglia Silverhart. L’obiettivo è cercare informazioni sul Tulipano senza attirare attenzioni indesiderate.',
+  summary:
+    'La Mano Cinerea si prepara per un ballo in maschera alla magione Silverhart. La notte precedente, il Visitatore chiede in prestito i cinque sensi dei membri del gruppo in cambio dei doni concessi. La sera seguente, gli avventurieri entrano nella dimora dei Silverhart pronti a indagare sul Tulipano.',
+  events: [
+    'La Mano Cinerea riceve una missione insolita: infiltrarsi in un ballo in maschera.',
+    'Il gruppo si prepara con abiti eleganti, profumi e maschere.',
+    'Il Visitatore si manifesta e chiede in prestito i cinque sensi.',
+    'Ogni membro sacrifica temporaneamente uno dei propri sensi.',
+    'Il gruppo raggiunge l’immensa magione della famiglia Silverhart.',
+    'L’indagine sul Tulipano inizia sotto lo sguardo dell’alta società.',
+  ],
+  people: [
+    'Jelly',
+    'Octavian “Ian” Ashvale',
+    'Sszara Sweetlight',
+    'Brewen Dolce Mosto',
+    'Zerion “Zero” Zaulyl',
+    'Mia',
+  ],
+  npcs: [
+    'Il Visitatore',
+    'Famiglia Silverhart',
+    'Ospiti del ballo',
+  ],
+  places: [
+    'Magione Silverhart',
+  ],
+  quote: 'Per conoscere davvero il mondo... prestatemi i vostri sensi.',
+  quoteAuthor: 'Il Visitatore',
+  quoteTitle: 'Momento memorabile',
+  tags: [
+    'Ballo in maschera',
+    'Silverhart',
+    'Tulipano',
+    'Intrigo sociale',
+    'Il Visitatore',
+  ],
+},
 ];
 
 export const latestSession = sessions[sessions.length - 1];

@@ -1,8 +1,36 @@
-import { useMemo, useState } from "react";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
-import { sessions } from "../data/sessionsData";
-import "../styles/sessions.css";
+import { useMemo, useState } from 'react'
+import Navbar from '../components/Navbar'
+import Footer from '../components/Footer'
+import SessionHighlight from '../components/SessionHighlight'
+import { sessions } from '../data/sessionsData'
+import '../styles/sessions.css'
+
+function getSessionDate(session) {
+  return session.date || session.playedAt || session.sessionDate || ''
+}
+
+function getSessionEvents(session) {
+  if (session.events?.length) return session.events
+  if (session.keyEvents?.length) return session.keyEvents
+  if (session.moments?.length) return session.moments
+  return []
+}
+
+function getSessionPeople(session) {
+  return session.players || session.people || session.characters || []
+}
+
+function getSessionNpcs(session) {
+  return session.npcs || session.npc || session.encounteredNpcs || []
+}
+
+function getSessionPlaces(session) {
+  return session.places || session.locations || []
+}
+
+function getSessionTags(session) {
+  return session.tags || []
+}
 
 function SessionsPage({
   onNavigate,
@@ -12,40 +40,46 @@ function SessionsPage({
   onSessionsClick,
   onQuestsClick,
 }) {
-  const [search, setSearch] = useState("");
+  const [search, setSearch] = useState('')
 
   const filteredSessions = useMemo(() => {
-    const query = search.trim().toLowerCase();
+    const query = search.trim().toLowerCase()
 
     return sessions
       .slice()
       .sort((a, b) => b.number - a.number)
       .filter((session) => {
-        if (!query) return true;
+        if (!query) return true
 
         const searchable = [
           session.number,
           session.title,
           session.arc,
           session.summary,
-          ...(session.people || []),
-          ...(session.places || []),
+          session.introduction,
+          session.quote,
+          getSessionDate(session),
+          ...getSessionPeople(session),
+          ...getSessionNpcs(session),
+          ...getSessionPlaces(session),
+          ...getSessionTags(session),
+          ...getSessionEvents(session),
         ]
-          .join(" ")
-          .toLowerCase();
+          .join(' ')
+          .toLowerCase()
 
-        return searchable.includes(query);
-      });
-  }, [search]);
+        return searchable.includes(query)
+      })
+  }, [search])
 
   const goHome = () => {
     if (onNavigate) {
-      onNavigate("home");
-      return;
+      onNavigate('home')
+      return
     }
 
-    onHomeClick?.();
-  };
+    onHomeClick?.()
+  }
 
   return (
     <div className="site-shell sessions-shell">
@@ -65,61 +99,128 @@ function SessionsPage({
 
         <section className="sessions-hero">
           <p className="section-kicker">Archivio narrativo</p>
-          <h1>Sessioni</h1>
+          <h1>Le Cronache</h1>
           <p>
-            La cronologia della Mano Cinerea, ordinata per sessione e raccontata
-            come un registro di viaggio: numero, titolo, riassunto, PNG e luoghi.
+            Ogni sessione è registrata come una pagina del Codex della Mano Cinerea:
+            eventi principali, luoghi, presenze, conseguenze e momenti memorabili.
           </p>
         </section>
 
         <section className="sessions-toolbar">
           <input
             type="text"
-            placeholder="Cerca per titolo, PNG, luogo, evento..."
+            placeholder="Cerca per titolo, PNG, luogo, evento, citazione..."
             value={search}
             onChange={(event) => setSearch(event.target.value)}
           />
           <span>{filteredSessions.length} sessioni</span>
         </section>
 
-        <section className="sessions-list">
-          {filteredSessions.map((session) => (
-            <article className="session-card" key={session.id}>
-              <header className="session-card-header">
-                <div className="session-number-block">
-                  <span>Sessione</span>
-                  <strong>{session.number}</strong>
+        <section className="sessions-chronicle">
+          {filteredSessions.map((session, index) => {
+            const people = getSessionPeople(session)
+            const npcs = getSessionNpcs(session)
+            const places = getSessionPlaces(session)
+            const events = getSessionEvents(session)
+            const tags = getSessionTags(session)
+            const sessionDate = getSessionDate(session)
+
+            return (
+              <article className="chronicle-card" key={session.id || session.number}>
+                <div className="chronicle-spine">
+                  <span className={index === 0 ? 'chronicle-node latest' : 'chronicle-node'} />
+                  <span className="chronicle-line" />
                 </div>
 
-                <div className="session-title-block">
-                  <p className="session-arc">{session.arc}</p>
-                  <h2>{session.title}</h2>
-                </div>
-              </header>
+                <div className="chronicle-content">
+                  <header className="chronicle-header">
+                    <div>
+                      <p className="session-block-kicker">
+                        Sessione {session.number}
+                        {sessionDate ? ` · ${sessionDate}` : ''}
+                      </p>
+                      <h2>{session.title}</h2>
+                      {session.arc && <p className="chronicle-arc">{session.arc}</p>}
+                    </div>
 
-              <div className="session-summary-box">
-                <p>{session.summary}</p>
-              </div>
+                    {index === 0 && <span className="latest-badge">Ultima cronaca</span>}
+                  </header>
 
-              <footer className="session-footer">
-                <div>
-                  <h3>PNG</h3>
-                  <p>{(session.people || []).join(" · ")}</p>
-                </div>
+                  <section className="chronicle-summary">
+                    <h3>📖 Introduzione</h3>
+                    <p>{session.introduction || session.summary}</p>
+                  </section>
 
-                <div>
-                  <h3>Luoghi</h3>
-                  <p>{(session.places || []).join(" · ")}</p>
+                  {events.length > 0 && (
+                    <section className="chronicle-block">
+                      <h3>⚔ Eventi principali</h3>
+                      <ol className="event-list">
+                        {events.map((event) => (
+                          <li key={event}>{event}</li>
+                        ))}
+                      </ol>
+                    </section>
+                  )}
+
+                  <div className="chronicle-meta-grid">
+                    {people.length > 0 && (
+                      <section className="chronicle-block compact">
+                        <h3>👥 Personaggi presenti</h3>
+                        <div className="session-chip-row">
+                          {people.map((person) => <span key={person}>{person}</span>)}
+                        </div>
+                      </section>
+                    )}
+
+                    {places.length > 0 && (
+                      <section className="chronicle-block compact">
+                        <h3>🏰 Luoghi</h3>
+                        <div className="session-chip-row">
+                          {places.map((place) => <span key={place}>{place}</span>)}
+                        </div>
+                      </section>
+                    )}
+
+                    {npcs.length > 0 && (
+                      <section className="chronicle-block compact">
+                        <h3>🎭 PNG e presenze</h3>
+                        <div className="session-chip-row">
+                          {npcs.map((npc) => <span key={npc}>{npc}</span>)}
+                        </div>
+                      </section>
+                    )}
+
+                    {session.nextSession && (
+                      <section className="chronicle-block compact">
+                        <h3>⏳ Prossima sessione</h3>
+                        <p>{session.nextSession}</p>
+                      </section>
+                    )}
+                  </div>
+
+                  <SessionHighlight
+                    quote={session.quote}
+                    author={session.quoteAuthor}
+                    title={session.quoteTitle}
+                  />
+
+                  {tags.length > 0 && (
+                    <footer className="chronicle-tags">
+                      {tags.map((tag) => (
+                        <span key={tag}>{tag}</span>
+                      ))}
+                    </footer>
+                  )}
                 </div>
-              </footer>
-            </article>
-          ))}
+              </article>
+            )
+          })}
         </section>
       </main>
 
       <Footer />
     </div>
-  );
+  )
 }
 
-export default SessionsPage;
+export default SessionsPage

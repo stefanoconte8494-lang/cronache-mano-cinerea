@@ -1,11 +1,11 @@
-/* SESSIONI - VERSIONE 0.5 */
+/* SESSIONI - VERSIONE 0.71 */
 
 .sessions-shell {
   min-height: 100vh;
 }
 
 .sessions-page {
-  width: min(1120px, calc(100% - 44px));
+  width: min(1180px, calc(100% - 44px));
   margin: 0 auto;
   padding: 34px 0 76px;
   color: #f4ead7;
@@ -31,16 +31,30 @@
 
 .sessions-hero {
   margin-top: 28px;
-  padding: 34px;
+  padding: 38px;
   border: 1px solid rgba(197, 145, 68, 0.28);
   background:
-    radial-gradient(circle at top left, rgba(197, 145, 68, 0.12), transparent 36%),
-    linear-gradient(135deg, rgba(26, 16, 12, 0.96), rgba(8, 7, 7, 0.94));
+    radial-gradient(circle at top left, rgba(197, 145, 68, 0.16), transparent 36%),
+    radial-gradient(circle at bottom right, rgba(122, 44, 33, 0.13), transparent 34%),
+    linear-gradient(135deg, rgba(26, 16, 12, 0.97), rgba(8, 7, 7, 0.95));
   box-shadow: 0 24px 70px rgba(0, 0, 0, 0.38);
+  position: relative;
+  overflow: hidden;
+}
+
+.sessions-hero::after {
+  content: "✦";
+  position: absolute;
+  right: 34px;
+  top: 24px;
+  color: rgba(242, 208, 138, 0.2);
+  font-size: 7rem;
+  line-height: 1;
 }
 
 .section-kicker,
-.session-arc {
+.session-block-kicker,
+.chronicle-arc {
   color: #c99346;
   text-transform: uppercase;
   letter-spacing: 0.14em;
@@ -51,8 +65,8 @@
 .sessions-hero h1 {
   margin: 10px 0;
   color: #f2d08a;
-  font-size: clamp(2.5rem, 6vw, 5rem);
-  line-height: 0.95;
+  font-size: clamp(2.6rem, 7vw, 5.6rem);
+  line-height: 0.92;
 }
 
 .sessions-hero p {
@@ -63,7 +77,7 @@
 }
 
 .sessions-toolbar {
-  margin: 24px 0;
+  margin: 24px 0 30px;
   display: flex;
   gap: 14px;
   align-items: center;
@@ -91,117 +105,190 @@
   white-space: nowrap;
 }
 
-.sessions-list {
+.sessions-chronicle {
   display: grid;
-  gap: 20px;
+  gap: 28px;
 }
 
-.session-card {
+.chronicle-card {
+  display: grid;
+  grid-template-columns: 42px 1fr;
+  gap: 18px;
+}
+
+.chronicle-spine {
+  display: grid;
+  justify-items: center;
+  grid-template-rows: auto 1fr;
+}
+
+.chronicle-node {
+  width: 20px;
+  height: 20px;
+  margin-top: 28px;
+  border-radius: 999px;
+  background: #8f5a31;
+  border: 2px solid #d6a652;
+  box-shadow: 0 0 18px rgba(214, 166, 82, 0.35);
+}
+
+.chronicle-node.latest {
+  background: #f2d08a;
+  box-shadow: 0 0 30px rgba(242, 208, 138, 0.65);
+}
+
+.chronicle-line {
+  width: 1px;
+  min-height: 100%;
+  background: linear-gradient(
+    to bottom,
+    rgba(197, 145, 68, 0.48),
+    rgba(197, 145, 68, 0.05)
+  );
+}
+
+.chronicle-content {
   border: 1px solid rgba(197, 145, 68, 0.28);
   background:
-    linear-gradient(90deg, rgba(139, 45, 31, 0.08), transparent 34%),
     radial-gradient(circle at top right, rgba(197, 145, 68, 0.08), transparent 38%),
-    rgba(14, 10, 8, 0.88);
+    linear-gradient(135deg, rgba(15, 10, 8, 0.94), rgba(8, 6, 6, 0.92));
   box-shadow: 0 18px 52px rgba(0, 0, 0, 0.36);
-  transition: 0.25s ease;
   overflow: hidden;
 }
 
-.session-card:hover {
-  transform: translateY(-2px);
-  border-color: rgba(197, 145, 68, 0.5);
-}
-
-.session-card-header {
-  display: grid;
-  grid-template-columns: 145px 1fr;
+.chronicle-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 22px;
+  align-items: flex-start;
+  padding: 30px 34px 24px;
   border-bottom: 1px solid rgba(197, 145, 68, 0.18);
 }
 
-.session-number-block {
-  min-height: 132px;
-  display: grid;
-  place-items: center;
-  align-content: center;
-  gap: 8px;
-  border-right: 1px solid rgba(197, 145, 68, 0.18);
-  background: rgba(0, 0, 0, 0.2);
-}
-
-.session-number-block span {
-  color: rgba(244, 234, 215, 0.62);
-  font-size: 0.76rem;
-  text-transform: uppercase;
-  letter-spacing: 0.16em;
-}
-
-.session-number-block strong {
-  color: #f2c46e;
-  font-size: clamp(2.8rem, 5vw, 4.4rem);
-  line-height: 0.9;
-}
-
-.session-title-block {
-  padding: 28px 32px 24px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.session-title-block h2 {
+.chronicle-header h2 {
   margin: 8px 0 0;
   color: #f4ead7;
-  font-size: clamp(1.45rem, 3vw, 2.25rem);
-  line-height: 1.05;
+  font-size: clamp(1.7rem, 4vw, 3.35rem);
+  line-height: 0.98;
 }
 
-.session-summary-box {
-  padding: 26px 32px;
+.chronicle-arc {
+  margin: 12px 0 0;
+  color: rgba(214, 166, 82, 0.86);
 }
 
-.session-summary-box p {
-  margin: 0;
-  color: rgba(244, 234, 215, 0.84);
+.latest-badge {
+  color: #090706;
+  background: #f2d08a;
+  padding: 8px 12px;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.chronicle-summary,
+.chronicle-block,
+.session-highlight {
+  padding: 24px 34px;
+  border-bottom: 1px solid rgba(197, 145, 68, 0.16);
+}
+
+.chronicle-summary h3,
+.chronicle-block h3 {
+  margin: 0 0 12px;
+  color: #d6a652;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+.chronicle-summary p,
+.chronicle-block p,
+.event-list li {
+  color: rgba(244, 234, 215, 0.82);
   line-height: 1.78;
   font-size: 1.02rem;
 }
 
-.session-footer {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  border-top: 1px solid rgba(197, 145, 68, 0.18);
-}
-
-.session-footer div {
-  padding: 20px 32px 24px;
-}
-
-.session-footer div + div {
-  border-left: 1px solid rgba(197, 145, 68, 0.18);
-}
-
-.session-footer h3 {
-  margin: 0 0 8px;
-  color: #d6a652;
-  font-size: 0.82rem;
-  text-transform: uppercase;
-  letter-spacing: 0.14em;
-}
-
-.session-footer p {
+.event-list {
   margin: 0;
-  color: rgba(244, 234, 215, 0.72);
-  line-height: 1.55;
+  padding-left: 1.4rem;
+  display: grid;
+  gap: 10px;
 }
 
-@media (max-width: 760px) {
+.chronicle-meta-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  border-bottom: 1px solid rgba(197, 145, 68, 0.16);
+}
+
+.chronicle-meta-grid .chronicle-block {
+  border-bottom: 0;
+}
+
+.chronicle-meta-grid .chronicle-block:nth-child(odd) {
+  border-right: 1px solid rgba(197, 145, 68, 0.16);
+}
+
+.session-chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.session-chip-row span,
+.chronicle-tags span {
+  border: 1px solid rgba(197, 145, 68, 0.32);
+  background: rgba(197, 145, 68, 0.07);
+  color: rgba(244, 234, 215, 0.84);
+  padding: 8px 11px;
+  border-radius: 999px;
+  font-size: 0.92rem;
+}
+
+.session-highlight {
+  position: relative;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(242, 208, 138, 0.11), transparent 40%),
+    rgba(0, 0, 0, 0.18);
+  text-align: center;
+}
+
+.session-highlight blockquote {
+  margin: 12px auto;
+  max-width: 760px;
+  color: #f4ead7;
+  font-size: clamp(1.25rem, 3vw, 2.2rem);
+  line-height: 1.35;
+  font-style: italic;
+}
+
+.session-highlight-author {
+  margin: 0;
+  color: #d6a652;
+}
+
+.chronicle-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 22px 34px 28px;
+}
+
+.chronicle-tags span {
+  color: #e5bd72;
+}
+
+@media (max-width: 820px) {
   .sessions-page {
-    width: min(100% - 28px, 1120px);
+    width: min(100% - 28px, 1180px);
     padding-top: 24px;
   }
 
   .sessions-hero {
-    padding: 24px;
+    padding: 26px;
   }
 
   .sessions-toolbar {
@@ -209,37 +296,36 @@
     align-items: stretch;
   }
 
-  .session-card-header {
+  .chronicle-card {
     grid-template-columns: 1fr;
   }
 
-  .session-number-block {
-    min-height: auto;
-    padding: 18px;
-    grid-template-columns: auto auto;
-    justify-content: start;
-    place-items: center;
+  .chronicle-spine {
+    display: none;
+  }
+
+  .chronicle-header {
+    flex-direction: column;
+  }
+
+  .chronicle-meta-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .chronicle-meta-grid .chronicle-block:nth-child(odd) {
     border-right: 0;
-    border-bottom: 1px solid rgba(197, 145, 68, 0.18);
   }
 
-  .session-number-block strong {
-    font-size: 2.4rem;
+  .chronicle-meta-grid .chronicle-block + .chronicle-block {
+    border-top: 1px solid rgba(197, 145, 68, 0.16);
   }
 
-  .session-title-block,
-  .session-summary-box,
-  .session-footer div {
+  .chronicle-summary,
+  .chronicle-block,
+  .session-highlight,
+  .chronicle-header,
+  .chronicle-tags {
     padding-left: 22px;
     padding-right: 22px;
-  }
-
-  .session-footer {
-    grid-template-columns: 1fr;
-  }
-
-  .session-footer div + div {
-    border-left: 0;
-    border-top: 1px solid rgba(197, 145, 68, 0.18);
   }
 }
