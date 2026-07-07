@@ -2,6 +2,7 @@ import { useState } from 'react'
 
 export default function CharacterGallery({ images = [] }) {
   const [selectedImage, setSelectedImage] = useState(null)
+
   if (!images.length) return null
 
   return (
