@@ -5,16 +5,15 @@ export default function Navbar({
   onNpcsClick,
   onSessionsClick,
   onQuestsClick,
+  onCodexClick,
 }) {
   const links = [
     'Home',
     'Personaggi',
     'Sessioni',
     'Quest',
-    'Luoghi',
     'PNG',
-    'Oggetti',
-    'Timeline',
+    'Codex',
   ]
 
   const handleNavClick = (link) => {
@@ -42,6 +41,11 @@ export default function Navbar({
       onNpcsClick?.()
       return
     }
+
+    if (link === 'Codex') {
+      onCodexClick?.()
+      return
+    }
   }
 
   return (
@@ -59,7 +63,7 @@ export default function Navbar({
             className={link === activePage ? 'nav-link active' : 'nav-link'}
             onClick={() => handleNavClick(link)}
           >
-            {link}
+            {link === 'Codex' ? 'Codex della Mano Cinerea' : link}
           </button>
         ))}
       </div>

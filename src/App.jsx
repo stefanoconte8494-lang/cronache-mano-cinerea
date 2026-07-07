@@ -5,6 +5,7 @@ import CharactersPage from './pages/CharactersPage'
 import NpcsPage from './pages/NpcsPage'
 import SessionsPage from './pages/SessionsPage'
 import QuestsPage from './pages/QuestsPage'
+import CodexPage from './pages/CodexPage'
 import { characters } from './data/charactersData'
 import './styles/global.css'
 import './styles/layout.css'
@@ -14,6 +15,7 @@ import './styles/characters.css'
 import './styles/npcs.css'
 import './styles/sessions.css'
 import './styles/quests.css'
+import './styles/codex.css'
 
 function App() {
   const [currentPage, setCurrentPage] = useState('home')
@@ -34,6 +36,7 @@ function App() {
   const openNpcs = () => navigateTo('npcs')
   const openSessions = () => navigateTo('sessions')
   const openQuests = () => navigateTo('quests')
+  const openCodex = () => navigateTo('codex')
 
   const openCharacter = (characterId) => {
     setSelectedCharacterId(characterId)
@@ -47,6 +50,7 @@ function App() {
     onNpcsClick: openNpcs,
     onSessionsClick: openSessions,
     onQuestsClick: openQuests,
+    onCodexClick: openCodex,
     onCharacterClick: openCharacter,
   }
 
@@ -78,6 +82,10 @@ function App() {
 
   if (currentPage === 'quests') {
     return <QuestsPage onNavigate={openHome} {...navigationProps} />
+  }
+
+  if (currentPage === 'codex') {
+    return <CodexPage {...navigationProps} />
   }
 
   return <Home {...navigationProps} />
