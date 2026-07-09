@@ -6,6 +6,7 @@ import Footer from '../components/Footer'
 import { activeCharacters, inactiveCharacters } from '../data/charactersData'
 import { latestSession } from '../data/sessionsData'
 import { openQuests } from '../data/questsData'
+import sessione42BalloSilverhart from '../assets/sessions/sessione-42-ballo-silverhart.png'
 
 export default function Home({
   onCharacterClick,
@@ -31,21 +32,43 @@ export default function Home({
       <HeroBanner />
 
       <main className="home-grid">
-        <section className="panel session-panel">
+        <section className="panel session-panel latest-session-panel">
           <SectionTitle>Ultima sessione</SectionTitle>
-          <div className="session-content">
-            <div className="session-art">Taverna<br />del Faro</div>
-            <div>
-              <p className="kicker">Sessione {latestSession.number}</p>
-              <h3>{latestSession.title}</h3>
-              <p>{latestSession.summary}</p>
-              <div className="tag-row">
-                {latestSession.tags.map((tag) => (
-                  <span key={tag}>{tag}</span>
-                ))}
-              </div>
-              <button className="primary-button" type="button" onClick={onSessionsClick}>Apri sessione</button>
+
+          <div className="latest-session-cover">
+            <img
+              src={sessione42BalloSilverhart}
+              alt="Ballo in maschera alla magione Silverhart"
+            />
+            <div className="latest-session-overlay">
+              <p>Ultima scena</p>
+              <h3>Il Ballo dei Silverhart</h3>
             </div>
+          </div>
+
+          <div className="latest-session-body">
+            <p className="kicker">Sessione 42 · Chiacchiera del Vicolo</p>
+            <h3>Il Ballo dei Silverhart</h3>
+            <p>
+              La Mano Cinerea prende parte al sontuoso ballo in maschera dei Silverhart
+              nel tentativo di raccogliere informazioni sul Tulipano, mentre il Visitatore
+              sperimenta il mondo attraverso i sensi donati dagli avventurieri.
+            </p>
+
+            <blockquote>
+              Dietro ogni maschera si cela un volto. Dietro ogni volto... un segreto.
+            </blockquote>
+
+            <div className="tag-row">
+              <span>Ballo in maschera</span>
+              <span>Silverhart</span>
+              <span>Tulipano</span>
+              <span>Il Visitatore</span>
+            </div>
+
+            <button className="primary-button" type="button" onClick={onSessionsClick}>
+              Leggi la cronaca
+            </button>
           </div>
         </section>
 

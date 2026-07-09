@@ -9,6 +9,15 @@ import jellyBase from '../assets/characters/jelly/jelly-base.png'
 import jellyGala from '../assets/characters/jelly/jelly-gala.png'
 import jellyCombattimento from '../assets/characters/jelly/jelly-combattimento.png'
 import jellyOscuro from '../assets/characters/jelly/jelly-oscuro.png'
+import jellyFormaNeutra from '../assets/characters/jelly/jelly-forma-neutra.png'
+import jellyFormaAcquatica from '../assets/characters/jelly/jelly-forma-acquatica.png'
+import jellyFormaProfonda from '../assets/characters/jelly/jelly-forma-profonda.png'
+import jellyFormaArcana from '../assets/characters/jelly/jelly-forma-arcana.png'
+import jellyFormaCremisi from '../assets/characters/jelly/jelly-forma-cremisi.png'
+import jellyFormaFuriosa from '../assets/characters/jelly/jelly-forma-furiosa.png'
+import jellyFormaTossica from '../assets/characters/jelly/jelly-forma-tossica.png'
+import jellyFormaOmbra from '../assets/characters/jelly/jelly-forma-ombra.png'
+import jellyFormaAbissale from '../assets/characters/jelly/jelly-forma-abissale.png'
 import kaeltharImage from '../assets/characters/kaelthar/kaelthar-lunachiara.png'
 import miaImage from '../assets/characters/mia/mia.png'
 import zeroImage from '../assets/characters/zero/zero.png'
@@ -47,7 +56,7 @@ export const characters = [
       { label: 'Ruolo', value: 'Ombra psionica' },
     ],
     stats: {
-      armorClass: 21,
+      armorClass: 19,
       hitPoints: 52,
       level: 8,
       proficiencyBonus: '+3',
@@ -69,9 +78,9 @@ export const characters = [
     },
     abilities: [
       {
-        name: 'Modellare sé stesso',
+        name: 'Corpo Plasmoide',
         value: 'Identità mutabile',
-        text: 'Jelly non è una creatura del tutto stabile. La sua forma può piegarsi, contrarsi e adattarsi come se il corpo fosse ancora in cerca di una versione definitiva.',
+        text: 'Jelly può alterare la propria consistenza e assumere colorazioni differenti. Ogni forma sembra riflettere un diverso stato emotivo, tattico o psionico.',
       },
       {
         name: 'Lame Psichiche',
@@ -136,16 +145,6 @@ export const characters = [
           'Può essere attivato volontariamente per 3 round.',
           'Alla fine dell’effetto il portatore contrae automaticamente il Morbo Meteoritico.',
         ],
-        disease: [
-          {
-            stage: 'Distorsione del Vuoto',
-            text: 'Quando il frammento risuona con la natura da ladro di Jelly, la sua presenza diventa più difficile da seguire: attacchi più letali, movimenti impossibili e aperture improvvise.',
-          },
-          {
-            stage: 'Morbo Meteoritico',
-            text: 'Il potere del frammento non è mai gratuito. Dopo l’attivazione resta il rischio della contaminazione e della consunzione.',
-          },
-        ],
       },
     ],
     ultimate: {
@@ -168,24 +167,11 @@ export const characters = [
         text: 'Dentro di lui sopravvivono frammenti di altri: ricordi, paure, competenze, gusti, voci. Non tutto ciò che Jelly sa appartiene davvero a Jelly.',
       },
       {
-        title: 'Il barile',
-        text: 'Per molto tempo è stato trattato come un’anomalia da nascondere, trasportare, vendere o temere. La sua libertà non è stata concessa: è stata strappata.',
-      },
-      {
-        title: 'L’incontro con Ian',
-        text: 'Ian è stato il primo a incontrarlo non soltanto come mostro o oggetto, ma come qualcuno a cui rivolgere una parola. Da lì nasce una delle radici più importanti della sua presenza nella Mano Cinerea.',
+        title: 'Le forme del Plasmoide',
+        text: 'Le nuove immagini registrano le diverse colorazioni di Jelly. Per ora i nomi sono descrittivi e potranno essere sostituiti con quelli ufficiali scelti dal giocatore.',
       },
     ],
     forms: [
-      {
-        id: 'cucina',
-        name: 'Jelly cuoco',
-        subtitle: 'Porchetta, coltelli e troppe braccia',
-        image: jellyCucina,
-        theme: 'gala',
-        description:
-          'Una delle immagini più strane e memorabili di Jelly: non solo lama e ombra, ma anche creatura capace di trasformare la cucina in un campo di battaglia organizzato.',
-      },
       {
         id: 'base',
         name: 'Forma base',
@@ -194,6 +180,96 @@ export const characters = [
         theme: 'night',
         description:
           'La forma più riconoscibile di Jelly: piccola, rapida, innaturale, con occhi luminosi e lame viola generate dal potere psichico.',
+      },
+      {
+        id: 'neutra',
+        name: 'Forma neutra',
+        subtitle: 'Colore chiaro e massa stabile',
+        image: jellyFormaNeutra,
+        theme: 'ivory',
+        description:
+          'Una colorazione chiara e più leggibile, utile come riferimento per la forma non alterata.',
+      },
+      {
+        id: 'acquatica',
+        name: 'Forma acquatica',
+        subtitle: 'Tono azzurro, consistenza fluida',
+        image: jellyFormaAcquatica,
+        theme: 'night',
+        description:
+          'Una variante azzurra che richiama acqua, adattamento e fluidità.',
+      },
+      {
+        id: 'profonda',
+        name: 'Forma profonda',
+        subtitle: 'Blu intenso',
+        image: jellyFormaProfonda,
+        theme: 'night',
+        description:
+          'Una forma blu più scura e compatta, come se la massa plasmoide si addensasse.',
+      },
+      {
+        id: 'arcana',
+        name: 'Forma arcana',
+        subtitle: 'Viola psionico',
+        image: jellyFormaArcana,
+        theme: 'night',
+        description:
+          'La variante più vicina all’identità psionica di Jelly: viola, instabile e luminosa.',
+      },
+      {
+        id: 'cremisi',
+        name: 'Forma cremisi',
+        subtitle: 'Magenta acceso',
+        image: jellyFormaCremisi,
+        theme: 'gala',
+        description:
+          'Una forma più brillante, aggressiva e scenografica.',
+      },
+      {
+        id: 'furiosa',
+        name: 'Forma furiosa',
+        subtitle: 'Rosso vivo',
+        image: jellyFormaFuriosa,
+        theme: 'gala',
+        description:
+          'La colorazione più violenta, adatta a rappresentare rabbia, pressione o istinto di sopravvivenza.',
+      },
+      {
+        id: 'tossica',
+        name: 'Forma tossica',
+        subtitle: 'Verde luminescente',
+        image: jellyFormaTossica,
+        theme: 'night',
+        description:
+          'Una forma verde e inquietante, quasi velenosa, che potrebbe indicare una mutazione specifica.',
+      },
+      {
+        id: 'ombra',
+        name: 'Forma d’ombra',
+        subtitle: 'Viola scuro',
+        image: jellyFormaOmbra,
+        theme: 'night',
+        description:
+          'Una variante più cupa, ideale per furtività, paura e presenza silenziosa.',
+      },
+      {
+        id: 'abissale',
+        name: 'Forma abissale',
+        subtitle: 'Nero lucido',
+        image: jellyFormaAbissale,
+        theme: 'night',
+        description:
+          'La forma più oscura: una massa nera, lucida e quasi priva di volto, illuminata solo dagli occhi.',
+      },
+      {
+        id: 'cucina',
+        name: 'Jelly cuoco',
+        subtitle: 'Porchetta, coltelli e troppe braccia',
+        image: jellyCucina,
+        theme: 'gala',
+        description:
+          'Una delle immagini più strane e memorabili di Jelly: non solo lama e ombra, ma anche creatura capace di trasformare la cucina in un campo di battaglia organizzato.',
       },
       {
         id: 'gala',
@@ -211,7 +287,7 @@ export const characters = [
         image: jellyCombattimento,
         theme: 'night',
         description:
-          'Jelly in battaglia è movimento, lama e scintilla psichica. Colpisce dove la guardia è più debole e scompare prima che il nemico capisca cosa sia accaduto.',
+          'Jelly in battaglia è movimento, lama e scintilla psichica.',
       },
       {
         id: 'oscuro',
@@ -220,7 +296,7 @@ export const characters = [
         image: jellyOscuro,
         theme: 'night',
         description:
-          'Quando il lato più feroce emerge, Jelly appare meno come un ladro e più come un incubo compatto, sporco di sangue e luce viola.',
+          'Quando il lato più feroce emerge, Jelly appare meno come un ladro e più come un incubo compatto.',
       },
     ],
     timeline: [
@@ -234,10 +310,24 @@ export const characters = [
         subtitle: 'Una nuova famiglia imperfetta',
         text: 'Jelly entra nella compagnia portando fame, lame psioniche, cucina e troppe memorie.',
       },
+      {
+        title: 'Forme registrate',
+        subtitle: 'Archivio visivo',
+        text: 'Il Codex inizia a registrare le diverse colorazioni e manifestazioni del corpo plasmoide di Jelly.',
+      },
     ],
     gallery: [
-      { id: 'cucina', title: 'Jelly cuoco', image: jellyCucina, description: 'Jelly in cucina, tra fuoco, coltelli e porchetta.' },
       { id: 'base', title: 'Forma base', image: jellyBase, description: 'La forma classica con cappuccio e lame psioniche.' },
+      { id: 'neutra', title: 'Forma neutra', image: jellyFormaNeutra, description: 'Colorazione chiara e stabile.' },
+      { id: 'acquatica', title: 'Forma acquatica', image: jellyFormaAcquatica, description: 'Variante azzurra e fluida.' },
+      { id: 'profonda', title: 'Forma profonda', image: jellyFormaProfonda, description: 'Blu intenso e massa compatta.' },
+      { id: 'arcana', title: 'Forma arcana', image: jellyFormaArcana, description: 'Viola psionico.' },
+      { id: 'cremisi', title: 'Forma cremisi', image: jellyFormaCremisi, description: 'Magenta acceso.' },
+      { id: 'furiosa', title: 'Forma furiosa', image: jellyFormaFuriosa, description: 'Rosso vivo e aggressivo.' },
+      { id: 'tossica', title: 'Forma tossica', image: jellyFormaTossica, description: 'Verde luminescente.' },
+      { id: 'ombra', title: 'Forma d’ombra', image: jellyFormaOmbra, description: 'Viola scuro e furtivo.' },
+      { id: 'abissale', title: 'Forma abissale', image: jellyFormaAbissale, description: 'Nero lucido e inquietante.' },
+      { id: 'cucina', title: 'Jelly cuoco', image: jellyCucina, description: 'Jelly in cucina, tra fuoco, coltelli e porchetta.' },
       { id: 'gala', title: 'Ballo in maschera', image: jellyGala, description: 'Jelly in abito elegante durante una serata di gala.' },
       { id: 'combattimento', title: 'Assalto psionico', image: jellyCombattimento, description: 'Jelly combatte contro due scheletri con lame viola.' },
       { id: 'oscuro', title: 'Forma oscura', image: jellyOscuro, description: 'Jelly in una variante feroce, sanguinaria e inquietante.' },
@@ -567,27 +657,98 @@ export const characters = [
   },
   {
     id: 'kaelthar',
-    name: 'Kaelthar Lunachiara',
+    name: 'Kaelthar “Necros” Lunachiara',
     title: 'Scelto da Damocle',
     subtitle: 'Scelto da Damocle',
-    role: 'Ex membro',
-    status: 'Ex membro',
+    role: 'Disperso',
+    status: 'Disperso',
     symbol: '✧',
     appearanceOrder: 7,
+    player: 'Stefano C.',
+    race: 'Shadar-Kai',
+    classInfo: 'Mago 7° livello · Cantore della Lama',
+    subclass: 'Cantore della Lama',
+    alignment: 'Neutrale Buono',
     image: kaeltharImage,
     portrait: kaeltharImage,
-    quote: 'Alcune strade restano nella cronaca anche quando chi le percorre si allontana.',
+    quote: 'Nessun limite. Niente può incatenare le infinite possibilità insite in ogni esistenza.',
     description:
-      'Kaelthar Lunachiara è stato parte della Mano Cinerea e rimane una figura importante delle cronache, legata a Damocle, alla lama di Saariel e a scelte che hanno lasciato conseguenze nel gruppo.',
+      'Kaelthar Lunachiara è stato parte della Mano Cinerea, ma il suo destino è rimasto sospeso dopo il fallimento di un teletrasporto. Non ha lasciato il gruppo: è scomparso.',
     identity: [
-      { label: 'Stato', value: 'Ex membro' },
-      { label: 'Titolo', value: 'Scelto da Damocle' },
+      { label: 'Stato', value: 'Disperso' },
+      { label: 'Razza', value: 'Shadar-Kai' },
+      { label: 'Classe', value: 'Mago 7° livello' },
+      { label: 'Sottoclasse', value: 'Cantore della Lama' },
+      { label: 'Allineamento', value: 'Neutrale Buono' },
       { label: 'Legame', value: 'Damocle' },
+    ],
+    stats: {
+      armorClass: 18,
+      hitPoints: 44,
+      level: 7,
+      proficiencyBonus: '+3',
+      spellSaveDc: 17,
+      spellAttack: '+9',
+      classes: [
+        { name: 'Mago', detail: 'Cantore della Lama', level: 7 },
+      ],
+      abilities: [
+        { name: 'Forza', value: 8 },
+        { name: 'Destrezza', value: 18 },
+        { name: 'Costituzione', value: 14 },
+        { name: 'Intelligenza', value: 18 },
+        { name: 'Saggezza', value: 10 },
+        { name: 'Carisma', value: 8 },
+      ],
+    },
+    abilities: [
+      {
+        name: 'Melodia della Lama',
+        value: 'Cantore della Lama',
+        text: 'Kaelthar combatteva fondendo scherma e magia, muovendosi come un duellante arcano più che come un mago tradizionale.',
+      },
+      {
+        name: 'Benedizione della Regina dei Corvi',
+        value: 'Shadar-Kai',
+        text: 'Il suo sangue Shadar-Kai lo legava a ombra, memoria e resistenza necrotica.',
+      },
+      {
+        name: 'Teletrasporto Fallito',
+        value: 'Mistero irrisolto',
+        text: 'Durante il ritorno dal Raid Generale, il teletrasporto ebbe un’anomalia. Kaelthar non tornò. Al suo posto apparve Sszara Sweetlight.',
+      },
+    ],
+    relics: [
+      {
+        name: 'Grimorio di Damocle',
+        category: 'Grimorio',
+        origin: 'Legato a Damocle',
+        effects: ['Dettagli da completare con la cronologia completa di Kaelthar.'],
+      },
+      {
+        name: 'Frammento Frangi-Trama',
+        category: 'Reliquia',
+        origin: 'Parte dell’anfora del Culto Perduto',
+        effects: [
+          'Focus arcano +1.',
+          'Passato successivamente a Sszara Sweetlight.',
+        ],
+      },
+      {
+        name: 'Armatura di Cuoio Borchiato +2',
+        category: 'Equipaggiamento',
+        origin: 'Scheda di Kaelthar',
+        effects: ['Protezione magica usata prima della scomparsa.'],
+      },
     ],
     backgroundSections: [
       {
-        title: 'Archivio in aggiornamento',
-        text: 'La pagina di Kaelthar è stata predisposta con immagine e descrizione iniziale. Verrà completata con background e cronologia quando saranno raccolte le informazioni definitive.',
+        title: 'Il Teletrasporto Fallito',
+        text: 'Dopo un Raid Generale, il gruppo tentò di tornare al dungeon in cui si trovava. Qualcosa nell’incantesimo di teletrasporto fallì: Kaelthar Lunachiara non tornò con gli altri. Al suo posto apparve Sszara Sweetlight, proveniente da un luogo diverso. Da quel momento il destino del mago Shadar-Kai rimane sconosciuto.',
+      },
+      {
+        title: 'Non un addio',
+        text: 'Kaelthar non è indicato come ex membro nel Codex, perché la sua uscita dalla compagnia non è stata una scelta né una morte confermata. È disperso.',
       },
     ],
     forms: [
@@ -602,6 +763,18 @@ export const characters = [
     ],
     gallery: [
       { id: 'kaelthar', title: 'Kaelthar Lunachiara', image: kaeltharImage, description: 'Kaelthar con lama e libro arcano.' },
+    ],
+    timeline: [
+      {
+        title: 'Raid Generale',
+        subtitle: 'Ultima apparizione conosciuta',
+        text: 'Kaelthar partecipa al raid con la Mano Cinerea.',
+      },
+      {
+        title: 'Il ritorno fallito',
+        subtitle: 'Disperso',
+        text: 'Il teletrasporto verso il dungeon fallisce: Kaelthar scompare e al suo posto compare Sszara.',
+      },
     ],
   },
   {

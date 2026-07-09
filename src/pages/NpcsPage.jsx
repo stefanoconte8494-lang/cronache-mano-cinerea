@@ -107,7 +107,11 @@ export default function NpcsPage({
             {filteredNpcs.map((npc) => (
               <article className="npc-card" key={npc.id}>
                 <div className="npc-card-header">
-                  <span className="npc-rune">✦</span>
+                  {npc.portrait ? (
+                    <img className="npc-portrait" src={npc.portrait} alt={npc.name} />
+                  ) : (
+                    <span className="npc-rune">✦</span>
+                  )}
                   <div>
                     <h3>{npc.name}</h3>
                     <p>{npc.role}</p>

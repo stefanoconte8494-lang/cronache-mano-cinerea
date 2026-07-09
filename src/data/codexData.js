@@ -55,9 +55,46 @@ export const codexCategories = [
     description: 'Eventi cardine della Mano Cinerea, ordinati come storia del mondo e non solo come sessioni.',
     count: 6,
   },
+  {
+    id: 'misteri',
+    title: 'Misteri irrisolti',
+    icon: '◈',
+    description: 'Eventi anomali, sparizioni e domande aperte che la Mano Cinerea non ha ancora chiarito.',
+    count: 1,
+  },
 ]
 
 export const codexEntries = [
+  {
+    id: 'gertrude',
+    category: 'figure',
+    title: 'Gertrude',
+    type: 'PNG importante',
+    status: 'Viva',
+    description:
+      'Donna anziana dall’aspetto severo e autorevole, legata alle prime indagini della Mano Cinerea.',
+    links: ['Faro di Cenere', 'Bosco dei ragni'],
+  },
+  {
+    id: 'alucard-maximilian-silverhart-iii',
+    category: 'figure',
+    title: 'Alucard Maximilian Silverhart III',
+    type: 'Casata Silverhart',
+    status: 'Vivo',
+    description:
+      'Esponente della potente famiglia Silverhart, incontrato durante il ballo in maschera della Sessione 42.',
+    links: ['Sessione 42', 'Famiglia Silverhart', 'Tulipano'],
+  },
+  {
+    id: 'teletrasporto-fallito',
+    category: 'misteri',
+    title: 'Il Teletrasporto Fallito',
+    type: 'Mistero irrisolto',
+    status: 'Aperto',
+    description:
+      'Durante il ritorno dal Raid Generale, Kaelthar scomparve e al suo posto apparve Sszara Sweetlight. L’origine dell’anomalia resta ignota.',
+    links: ['Kaelthar Lunachiara', 'Sszara Sweetlight', 'Raid Generale'],
+  },
   {
     id: 'magione-silverhart',
     category: 'luoghi',
