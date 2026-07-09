@@ -66,6 +66,16 @@ export const codexCategories = [
 
 export const codexEntries = [
   {
+    id: 'kaelthar-mago-disperso',
+    category: 'misteri',
+    title: 'Kaelthar, il Mago Disperso',
+    type: 'Personaggio disperso',
+    status: 'Aperto',
+    description:
+      'Kaelthar non è un ex membro: è scomparso durante l’anomalia del teletrasporto successiva al Raid Generale. Il suo destino è ancora ignoto.',
+    links: ['Kaelthar Lunachiara', 'Sszara Sweetlight', 'Il Teletrasporto Fallito'],
+  },
+  {
     id: 'gertrude',
     category: 'figure',
     title: 'Gertrude',
@@ -92,7 +102,7 @@ export const codexEntries = [
     type: 'Mistero irrisolto',
     status: 'Aperto',
     description:
-      'Durante il ritorno dal Raid Generale, Kaelthar scomparve e al suo posto apparve Sszara Sweetlight. L’origine dell’anomalia resta ignota.',
+      'Durante il ritorno dal Raid Generale, Kaelthar “Necros” Lunachiara scomparve e al suo posto apparve Sszara Sweetlight. L’origine dell’anomalia resta ignota.',
     links: ['Kaelthar Lunachiara', 'Sszara Sweetlight', 'Raid Generale'],
   },
   {

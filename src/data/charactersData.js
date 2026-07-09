@@ -19,6 +19,10 @@ import jellyFormaTossica from '../assets/characters/jelly/jelly-forma-tossica.pn
 import jellyFormaOmbra from '../assets/characters/jelly/jelly-forma-ombra.png'
 import jellyFormaAbissale from '../assets/characters/jelly/jelly-forma-abissale.png'
 import kaeltharImage from '../assets/characters/kaelthar/kaelthar-lunachiara.png'
+import kaeltharCavaliere from '../assets/characters/kaelthar/kaelthar-cavaliere.png'
+import kaeltharNecrosArmata from '../assets/characters/kaelthar/kaelthar-necros-armata.png'
+import kaeltharDueArmi from '../assets/characters/kaelthar/kaelthar-due-armi.jpg'
+import kaeltharLamaIncantata from '../assets/characters/kaelthar/kaelthar-cavaliere-lama-incantata.png'
 import miaImage from '../assets/characters/mia/mia.png'
 import zeroImage from '../assets/characters/zero/zero.png'
 import brewenGiant from '../assets/characters/brewen/brewen-gigante.png'
@@ -56,7 +60,7 @@ export const characters = [
       { label: 'Ruolo', value: 'Ombra psionica' },
     ],
     stats: {
-      armorClass: 19,
+      armorClass: 21,
       hitPoints: 52,
       level: 8,
       proficiencyBonus: '+3',
@@ -658,35 +662,41 @@ export const characters = [
   {
     id: 'kaelthar',
     name: 'Kaelthar “Necros” Lunachiara',
-    title: 'Scelto da Damocle',
-    subtitle: 'Scelto da Damocle',
-    role: 'Disperso',
+    title: 'Il Mago Disperso',
+    subtitle: 'Cantore della Lama · Scelto da Damocle',
+    role: 'Mago disperso della Mano Cinerea',
     status: 'Disperso',
-    symbol: '✧',
+    symbol: '◈',
     appearanceOrder: 7,
     player: 'Stefano C.',
     race: 'Shadar-Kai',
     classInfo: 'Mago 7° livello · Cantore della Lama',
     subclass: 'Cantore della Lama',
     alignment: 'Neutrale Buono',
-    image: kaeltharImage,
-    portrait: kaeltharImage,
+    firstAppearance: 'Prima formazione della Mano Cinerea',
+    image: kaeltharLamaIncantata,
+    portrait: kaeltharCavaliere,
     quote: 'Nessun limite. Niente può incatenare le infinite possibilità insite in ogni esistenza.',
     description:
-      'Kaelthar Lunachiara è stato parte della Mano Cinerea, ma il suo destino è rimasto sospeso dopo il fallimento di un teletrasporto. Non ha lasciato il gruppo: è scomparso.',
+      'Kaelthar “Necros” Lunachiara non è un ex membro nel senso comune del termine: è disperso. Dopo un Raid Generale, il ritorno al dungeon fallì e il teletrasporto non riportò indietro il mago Shadar-Kai. Al suo posto apparve Sszara Sweetlight. Da quel momento il destino di Kaelthar rimane un mistero aperto della Mano Cinerea.',
     identity: [
       { label: 'Stato', value: 'Disperso' },
       { label: 'Razza', value: 'Shadar-Kai' },
       { label: 'Classe', value: 'Mago 7° livello' },
       { label: 'Sottoclasse', value: 'Cantore della Lama' },
+      { label: 'Background', value: 'Sapiente' },
       { label: 'Allineamento', value: 'Neutrale Buono' },
       { label: 'Legame', value: 'Damocle' },
     ],
     stats: {
       armorClass: 18,
+      initiative: '+4',
+      speed: '9 m',
       hitPoints: 44,
       level: 7,
       proficiencyBonus: '+3',
+      passivePerception: 13,
+      spellcastingAbility: 'Intelligenza',
       spellSaveDc: 17,
       spellAttack: '+9',
       classes: [
@@ -700,81 +710,249 @@ export const characters = [
         { name: 'Saggezza', value: 10 },
         { name: 'Carisma', value: 8 },
       ],
+      skills: [
+        { name: 'Acrobazia', value: '+4' },
+        { name: 'Arcano', value: '+7' },
+        { name: 'Storia', value: '+7' },
+        { name: 'Indagare', value: '+7' },
+        { name: 'Natura', value: '+4' },
+        { name: 'Percezione', value: '+3' },
+        { name: 'Religione', value: '+7' },
+        { name: 'Furtività', value: '+4' },
+      ],
+      savingThrows: [
+        { name: 'Forza', value: '-1' },
+        { name: 'Destrezza', value: '+4' },
+        { name: 'Costituzione', value: '+2' },
+        { name: 'Intelligenza', value: '+7' },
+        { name: 'Saggezza', value: '+3' },
+        { name: 'Carisma', value: '-1' },
+      ],
+      languages: ['Comune', 'Elfico', 'altre lingue da completare'],
     },
     abilities: [
       {
         name: 'Melodia della Lama',
-        value: 'Cantore della Lama',
-        text: 'Kaelthar combatteva fondendo scherma e magia, muovendosi come un duellante arcano più che come un mago tradizionale.',
+        value: 'Identità da Bladesinger',
+        text: 'Kaelthar fonde scherma e magia elfica. Quando la Melodia della Lama è attiva, la sua difesa, la sua mobilità e la sua concentrazione diventano sovrannaturali.',
+      },
+      {
+        name: 'Attacco Extra',
+        value: 'Lama e trucchetto',
+        text: 'Può attaccare due volte quando effettua l’azione di Attacco e può sostituire uno degli attacchi con un trucchetto da mago.',
+      },
+      {
+        name: 'Recupero Arcano',
+        value: 'Studio del grimorio',
+        text: 'Recupera parte dell’energia magica studiando il libro degli incantesimi durante un riposo breve.',
       },
       {
         name: 'Benedizione della Regina dei Corvi',
-        value: 'Shadar-Kai',
-        text: 'Il suo sangue Shadar-Kai lo legava a ombra, memoria e resistenza necrotica.',
+        value: 'Retaggio Shadar-Kai',
+        text: 'Può teletrasportarsi magicamente e, dal 3° livello, ottiene resistenza ai danni dopo questo spostamento, apparendo spettrale e traslucido.',
       },
       {
-        name: 'Teletrasporto Fallito',
+        name: 'Resistenza Necrotica',
+        value: 'Sangue Shadar-Kai',
+        text: 'La sua natura lo rende resistente ai danni necrotici.',
+      },
+      {
+        name: 'Trance',
+        value: 'Memoria elfica',
+        text: 'Non ha bisogno di dormire e può acquisire temporaneamente competenze in armi o strumenti tramite la memoria elfica condivisa.',
+      },
+      {
+        name: 'Il Teletrasporto Fallito',
         value: 'Mistero irrisolto',
-        text: 'Durante il ritorno dal Raid Generale, il teletrasporto ebbe un’anomalia. Kaelthar non tornò. Al suo posto apparve Sszara Sweetlight.',
+        text: 'Durante il ritorno dal Raid Generale, il teletrasporto ebbe un’anomalia: Kaelthar scomparve e al suo posto apparve Sszara Sweetlight.',
       },
     ],
+    spells: {
+      cantrips: ['Lama Roboante', 'Lama Verdefiamma', 'Scheggia della Mente', 'Riparare'],
+      level1: [
+        'Aculei Argentei',
+        'Allarme',
+        'Armatura Magica',
+        'Assorbire Elementi',
+        'Coltello di Ghiaccio',
+        'Comprensione dei Linguaggi',
+        'Dardo Incantato',
+        'Identificare',
+        'Individuazione del Magico',
+        'Scudo',
+        'Trova Famiglio',
+        'Vita Falsata',
+      ],
+      level2: [
+        'Ghiaccio Vincolante di Rime',
+        'Lama d’Ombra',
+        'Scudiscio Mentale di Tasha',
+        'Soffio del Drago',
+        'Vedere Invisibilità',
+        'Vincolo della Terra',
+      ],
+      level3: [
+        'Animare i Morti',
+        'Capanna di Leomund',
+        'Controincantesimo',
+        'Destriero Fantomatico',
+        'Dissolvi Magie',
+        'Lentezza',
+        'Palla di Fuoco',
+        'Velocità',
+      ],
+      level4: ['Lancia Psichica di Raulothim', 'Scolpire Pietra'],
+    },
     relics: [
       {
         name: 'Grimorio di Damocle',
-        category: 'Grimorio',
-        origin: 'Legato a Damocle',
-        effects: ['Dettagli da completare con la cronologia completa di Kaelthar.'],
+        category: 'Grimorio unico',
+        origin: 'Legame da Mago',
+        effects: [
+          '+1 ai tiri per colpire con incantesimo e alla CD degli incantesimi.',
+          'Una volta al giorno permette di lanciare un incantesimo necromantico contenuto nel libro senza usare slot.',
+          'Può aumentare temporaneamente la potenza dei non morti evocati.',
+        ],
       },
       {
         name: 'Frammento Frangi-Trama',
-        category: 'Reliquia',
+        category: 'Reliquia · Sintonia',
         origin: 'Parte dell’anfora del Culto Perduto',
         effects: [
           'Focus arcano +1.',
-          'Passato successivamente a Sszara Sweetlight.',
+          'Una volta al giorno: Controincantesimo.',
+          'Una volta al giorno: Dissolvi Magie.',
+          'Una volta al giorno: Scudo.',
+          'È appartenuto a Kaelthar prima di passare a Sszara Sweetlight.',
+        ],
+      },
+      {
+        name: 'Anello di Malachir Drenhal, Custode del Sigillo Nero',
+        category: 'Artefatto senziente',
+        origin: 'Frammento dell’anima',
+        effects: [
+          'Richiede sintonia con un Mago.',
+          'Concede bonus a una caratteristica secondo il livello del personaggio.',
+          'È legato ai frammenti dell’anima e a conoscenze degli anni ignoti.',
         ],
       },
       {
         name: 'Armatura di Cuoio Borchiato +2',
-        category: 'Equipaggiamento',
-        origin: 'Scheda di Kaelthar',
-        effects: ['Protezione magica usata prima della scomparsa.'],
+        category: 'Armatura',
+        origin: 'Equipaggiamento di Kaelthar',
+        effects: ['Parte della difesa che porta la sua CA a 18.'],
+      },
+      {
+        name: 'La Folgore Scarlatta',
+        category: 'Arma distintiva',
+        origin: 'Equipaggiamento di Kaelthar',
+        effects: ['Stocco o lama principale usata insieme alla magia del Cantore della Lama.'],
+      },
+      {
+        name: 'Sfera del Jinn Roden Ramses',
+        category: 'Oggetto misterioso',
+        origin: 'Equipaggiamento',
+        effects: ['Dettagli da sviluppare nel Codex quando verranno raccolte più informazioni.'],
       },
     ],
     backgroundSections: [
+      {
+        title: 'Il Sapiente',
+        text: 'Kaelthar parla lentamente quando si rivolge agli idioti, vale a dire quasi tutti dal suo punto di vista. È legato a un antico testo i cui terribili segreti non devono cadere nelle mani sbagliate.',
+      },
+      {
+        title: 'Nessun limite',
+        text: 'Il suo ideale è la possibilità: niente deve incatenare le infinite potenzialità insite in ogni esistenza. Questo lo rende un personaggio affascinato dalla conoscenza, dal rischio e dai margini più pericolosi della magia.',
+      },
       {
         title: 'Il Teletrasporto Fallito',
         text: 'Dopo un Raid Generale, il gruppo tentò di tornare al dungeon in cui si trovava. Qualcosa nell’incantesimo di teletrasporto fallì: Kaelthar Lunachiara non tornò con gli altri. Al suo posto apparve Sszara Sweetlight, proveniente da un luogo diverso. Da quel momento il destino del mago Shadar-Kai rimane sconosciuto.',
       },
       {
-        title: 'Non un addio',
-        text: 'Kaelthar non è indicato come ex membro nel Codex, perché la sua uscita dalla compagnia non è stata una scelta né una morte confermata. È disperso.',
+        title: 'Non un ex membro',
+        text: 'Kaelthar non viene registrato come ex membro: non ha abbandonato la Mano Cinerea e non è morto in modo confermato. Nel Codex il suo stato corretto è Disperso.',
       },
     ],
     forms: [
       {
-        id: 'kaelthar',
-        name: 'Kaelthar Lunachiara',
-        subtitle: 'Lama, libro e potere',
+        id: 'lama-incantata',
+        name: 'Cavaliere della Lama Incantata',
+        subtitle: 'La forma più rappresentativa',
+        image: kaeltharLamaIncantata,
+        theme: 'night',
+        description:
+          'Kaelthar come Cantore della Lama: spada, grimorio e armatura attraversati da energia azzurra.',
+      },
+      {
+        id: 'cavaliere',
+        name: 'Cavaliere Arcano',
+        subtitle: 'Destriero fantomatico e lama elettrica',
+        image: kaeltharCavaliere,
+        theme: 'night',
+        description:
+          'Una rappresentazione dinamica di Kaelthar a cavallo, evocativa del Destriero Fantomatico e della sua natura da mago combattente.',
+      },
+      {
+        id: 'necros-armata',
+        name: 'Necros e la sua armata',
+        subtitle: 'Lato necromantico',
+        image: kaeltharNecrosArmata,
+        theme: 'night',
+        description:
+          'Kaelthar circondato da servitori non morti, sotto una pioggia di meteore: il volto più inquietante della sua magia.',
+      },
+      {
+        id: 'due-armi',
+        name: 'Doppia lama arcana',
+        subtitle: 'Lama, ombra e libro',
+        image: kaeltharDueArmi,
+        theme: 'night',
+        description:
+          'Una versione concentrata sul duello arcano, tra lama fisica, lama evocata e grimorio sospeso.',
+      },
+      {
+        id: 'ritratto-classico',
+        name: 'Ritratto originale',
+        subtitle: 'Archivio precedente',
         image: kaeltharImage,
         theme: 'ivory',
-        description: 'Kaelthar appare come una figura lunare e arcana, divisa tra lama, conoscenza e poteri pericolosi.',
+        description:
+          'Il primo ritratto usato nel Codex, mantenuto come immagine d’archivio.',
       },
     ],
     gallery: [
-      { id: 'kaelthar', title: 'Kaelthar Lunachiara', image: kaeltharImage, description: 'Kaelthar con lama e libro arcano.' },
+      { id: 'lama-incantata', title: 'Cavaliere della Lama Incantata', image: kaeltharLamaIncantata, description: 'Spada, grimorio e armatura attraversati dalla magia.' },
+      { id: 'cavaliere', title: 'Cavaliere Arcano', image: kaeltharCavaliere, description: 'Kaelthar su destriero, con lama elettrica e libro aperto.' },
+      { id: 'necros-armata', title: 'Necros e la sua armata', image: kaeltharNecrosArmata, description: 'Kaelthar con un’armata di non morti sotto una pioggia di meteore.' },
+      { id: 'due-armi', title: 'Doppia lama arcana', image: kaeltharDueArmi, description: 'Kaelthar con due lame e grimorio sospeso.' },
+      { id: 'ritratto-classico', title: 'Ritratto originale', image: kaeltharImage, description: 'Immagine storica del personaggio nel Codex.' },
     ],
     timeline: [
       {
+        title: 'Prima formazione della Mano Cinerea',
+        subtitle: 'Mago della compagnia',
+        text: 'Kaelthar accompagna la Mano Cinerea come mago Shadar-Kai e Cantore della Lama.',
+      },
+      {
+        title: 'Legame con Damocle',
+        subtitle: 'Grimorio e conoscenza proibita',
+        text: 'Il suo percorso si lega al Grimorio di Damocle, ai segreti arcani e alla necromanzia.',
+      },
+      {
         title: 'Raid Generale',
         subtitle: 'Ultima apparizione conosciuta',
-        text: 'Kaelthar partecipa al raid con la Mano Cinerea.',
+        text: 'Kaelthar partecipa al Raid Generale con la Mano Cinerea.',
       },
       {
         title: 'Il ritorno fallito',
         subtitle: 'Disperso',
-        text: 'Il teletrasporto verso il dungeon fallisce: Kaelthar scompare e al suo posto compare Sszara.',
+        text: 'Il teletrasporto verso il dungeon fallisce: Kaelthar scompare e al suo posto compare Sszara Sweetlight.',
       },
+    ],
+    quotes: [
+      'Nessun limite. Niente può incatenare le infinite possibilità insite in ogni esistenza.',
+      'Il sapere non è pericoloso. Lo sono gli idioti che credono di possederlo.',
+      'Non sono scomparso. Sono solo oltre il punto in cui potete vedermi.',
     ],
   },
   {
