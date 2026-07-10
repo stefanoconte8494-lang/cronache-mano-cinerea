@@ -187,3 +187,438 @@
 .tech-main-grid {
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
 }
+
+
+
+/* VERSIONE 0.99 - PALETTE PERSONAGGI
+   Palette dedicate alle schede singole:
+   Sszara, Jelly, Zero, Ian, Mia.
+*/
+
+/* ----------------------------- */
+/* SSZARA - Bianco lunare / verde bosco */
+/* ----------------------------- */
+
+.character-page-sszara::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 16% 18%, rgba(232, 245, 226, 0.18), transparent 28%),
+    radial-gradient(circle at 82% 16%, rgba(64, 124, 78, 0.18), transparent 30%),
+    radial-gradient(circle at 52% 105%, rgba(177, 229, 198, 0.14), transparent 36%),
+    linear-gradient(135deg, rgba(8, 15, 11, 0.68), rgba(3, 6, 4, 0.9));
+  z-index: -1;
+}
+
+.character-page-sszara .character-hero-profile,
+.character-page-sszara .character-profile,
+.character-page-sszara .identity-card,
+.character-page-sszara .character-tech-section,
+.character-page-sszara .character-abilities-section,
+.character-page-sszara .character-relics-section,
+.character-page-sszara .character-background-section,
+.character-page-sszara .character-forms,
+.character-page-sszara .character-timeline-section,
+.character-page-sszara .character-quotes-section,
+.character-page-sszara .character-gallery-section {
+  border-color: rgba(180, 231, 190, 0.34);
+  background:
+    radial-gradient(circle at top right, rgba(210, 245, 220, 0.12), transparent 34%),
+    radial-gradient(circle at bottom left, rgba(46, 104, 67, 0.13), transparent 38%),
+    rgba(7, 13, 10, 0.9);
+}
+
+.character-page-sszara .kicker,
+.character-page-sszara .character-section-heading p,
+.character-page-sszara .relic-category,
+.character-page-sszara .form-subtitle,
+.character-page-sszara .tech-main-grid span {
+  color: #b9e6c1;
+}
+
+.character-page-sszara .character-hero-content h1,
+.character-page-sszara .character-profile-content h1 {
+  color: #f2fff4;
+  text-shadow: 0 0 26px rgba(188, 241, 201, 0.15);
+}
+
+.character-page-sszara .character-section-heading h2,
+.character-page-sszara .character-hero-content h2,
+.character-page-sszara .tech-detail-grid h3,
+.character-page-sszara .ability-card h3,
+.character-page-sszara .relic-card h3,
+.character-page-sszara .background-chapters h3,
+.character-page-sszara .character-timeline-item h3,
+.character-page-sszara .gallery-lightbox-panel h3,
+.character-page-sszara .identity-card strong {
+  color: #e9f8dc;
+}
+
+.character-page-sszara .character-tags span,
+.character-page-sszara .skill-pills span,
+.character-page-sszara .form-tab.active,
+.character-page-sszara .form-tab:hover {
+  border-color: rgba(183, 232, 185, 0.62);
+  color: #ecffe9;
+  background: rgba(42, 95, 55, 0.18);
+  box-shadow: 0 0 22px rgba(109, 174, 113, 0.14);
+}
+
+.character-page-sszara .character-hero-content blockquote,
+.character-page-sszara .character-profile-content blockquote,
+.character-page-sszara .character-quotes-grid blockquote,
+.character-page-sszara .form-description-card {
+  border-left-color: #9fd69f;
+  background: linear-gradient(90deg, rgba(224, 244, 224, 0.08), rgba(10, 29, 15, 0.22));
+}
+
+.character-page-sszara .character-timeline-item span {
+  background: #dff6dc;
+  box-shadow: 0 0 18px rgba(197, 255, 200, 0.5);
+}
+
+/* ----------------------------- */
+/* JELLY - Viola / nero, struttura mutevole */
+/* ----------------------------- */
+
+.character-page-jelly .character-hero-profile {
+  border-radius: 0 34px 0 34px;
+  background:
+    radial-gradient(circle at 18% 18%, rgba(149, 91, 255, 0.22), transparent 32%),
+    linear-gradient(135deg, rgba(7, 4, 11, 0.96), rgba(18, 8, 34, 0.92));
+}
+
+.character-page-jelly .character-tech-section,
+.character-page-jelly .character-gallery-section {
+  border-radius: 28px 4px 28px 4px;
+}
+
+.character-page-jelly .character-abilities-section,
+.character-page-jelly .character-background-section {
+  border-radius: 4px 28px 4px 28px;
+}
+
+.character-page-jelly .character-relics-section,
+.character-page-jelly .character-forms,
+.character-page-jelly .character-timeline-section,
+.character-page-jelly .character-quotes-section {
+  border-radius: 18px;
+}
+
+.character-page-jelly .ability-card:nth-child(3n + 1),
+.character-page-jelly .relic-card:nth-child(3n + 1),
+.character-page-jelly .background-chapters article:nth-child(3n + 1) {
+  border-color: rgba(168, 111, 255, 0.32);
+  background: radial-gradient(circle at top, rgba(120, 72, 220, 0.12), transparent 42%), rgba(6, 5, 9, 0.42);
+}
+
+.character-page-jelly .ability-card:nth-child(3n + 2),
+.character-page-jelly .relic-card:nth-child(3n + 2),
+.character-page-jelly .background-chapters article:nth-child(3n + 2) {
+  border-color: rgba(74, 38, 130, 0.42);
+  background: linear-gradient(135deg, rgba(27, 12, 49, 0.46), rgba(4, 3, 7, 0.5));
+}
+
+.character-page-jelly .ability-card:nth-child(3n),
+.character-page-jelly .relic-card:nth-child(3n),
+.character-page-jelly .background-chapters article:nth-child(3n) {
+  border-color: rgba(224, 206, 255, 0.22);
+  background: radial-gradient(circle at bottom right, rgba(195, 160, 255, 0.1), transparent 40%), rgba(0, 0, 0, 0.34);
+}
+
+.character-page-jelly .character-hero-content h1,
+.character-page-jelly .character-profile-content h1 {
+  color: #f2ecff;
+  letter-spacing: -0.07em;
+  text-shadow: 0 0 34px rgba(127, 92, 255, 0.3);
+}
+
+/* ----------------------------- */
+/* ZERO - Viola / indaco / oro */
+/* ----------------------------- */
+
+.character-page-zero::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 16% 20%, rgba(106, 65, 206, 0.22), transparent 30%),
+    radial-gradient(circle at 86% 14%, rgba(220, 171, 82, 0.13), transparent 28%),
+    radial-gradient(circle at 50% 105%, rgba(35, 29, 91, 0.34), transparent 38%),
+    #05040a;
+  z-index: -1;
+}
+
+.character-page-zero .character-hero-profile,
+.character-page-zero .character-profile,
+.character-page-zero .identity-card,
+.character-page-zero .character-tech-section,
+.character-page-zero .character-abilities-section,
+.character-page-zero .character-relics-section,
+.character-page-zero .character-background-section,
+.character-page-zero .character-forms,
+.character-page-zero .character-timeline-section,
+.character-page-zero .character-quotes-section,
+.character-page-zero .character-gallery-section {
+  border-color: rgba(166, 116, 255, 0.32);
+  background:
+    radial-gradient(circle at top right, rgba(206, 157, 74, 0.1), transparent 34%),
+    radial-gradient(circle at bottom left, rgba(72, 54, 156, 0.18), transparent 38%),
+    rgba(7, 6, 16, 0.91);
+}
+
+.character-page-zero .kicker,
+.character-page-zero .character-section-heading p,
+.character-page-zero .relic-category,
+.character-page-zero .form-subtitle,
+.character-page-zero .tech-main-grid span {
+  color: #c7a6ff;
+}
+
+.character-page-zero .character-section-heading h2,
+.character-page-zero .character-hero-content h2,
+.character-page-zero .tech-detail-grid h3,
+.character-page-zero .ability-card h3,
+.character-page-zero .relic-card h3,
+.character-page-zero .background-chapters h3,
+.character-page-zero .character-timeline-item h3,
+.character-page-zero .gallery-lightbox-panel h3,
+.character-page-zero .identity-card strong {
+  color: #f2d58a;
+}
+
+.character-page-zero .character-hero-content h1,
+.character-page-zero .character-profile-content h1 {
+  color: #efe7ff;
+  text-shadow:
+    0 0 26px rgba(118, 76, 255, 0.22),
+    0 0 10px rgba(242, 213, 138, 0.12);
+}
+
+.character-page-zero .character-tags span,
+.character-page-zero .skill-pills span,
+.character-page-zero .form-tab.active,
+.character-page-zero .form-tab:hover {
+  border-color: rgba(205, 169, 93, 0.58);
+  color: #f7df9c;
+  background: rgba(50, 38, 108, 0.22);
+  box-shadow: 0 0 24px rgba(126, 82, 255, 0.16);
+}
+
+.character-page-zero .character-hero-content blockquote,
+.character-page-zero .character-profile-content blockquote,
+.character-page-zero .character-quotes-grid blockquote,
+.character-page-zero .form-description-card {
+  border-left-color: #8d69ff;
+  background: linear-gradient(90deg, rgba(98, 63, 201, 0.12), rgba(0, 0, 0, 0.24));
+}
+
+.character-page-zero .character-timeline-item span {
+  background: #d7a953;
+  box-shadow: 0 0 18px rgba(215, 169, 83, 0.5);
+}
+
+/* ----------------------------- */
+/* IAN - Verde / azzurro-blu, stile nobiliare */
+/* ----------------------------- */
+
+.character-page-ian::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 14% 18%, rgba(83, 164, 118, 0.16), transparent 30%),
+    radial-gradient(circle at 84% 16%, rgba(87, 183, 234, 0.18), transparent 32%),
+    radial-gradient(circle at 50% 105%, rgba(23, 79, 88, 0.28), transparent 40%),
+    #03080a;
+  z-index: -1;
+}
+
+.character-page-ian .character-hero-profile,
+.character-page-ian .character-profile,
+.character-page-ian .identity-card,
+.character-page-ian .character-tech-section,
+.character-page-ian .character-abilities-section,
+.character-page-ian .character-relics-section,
+.character-page-ian .character-background-section,
+.character-page-ian .character-forms,
+.character-page-ian .character-timeline-section,
+.character-page-ian .character-quotes-section,
+.character-page-ian .character-gallery-section {
+  border-color: rgba(107, 189, 191, 0.34);
+  background:
+    radial-gradient(circle at top right, rgba(104, 190, 238, 0.12), transparent 34%),
+    radial-gradient(circle at bottom left, rgba(55, 122, 75, 0.13), transparent 38%),
+    rgba(6, 12, 13, 0.92);
+}
+
+.character-page-ian .character-hero-content h1,
+.character-page-ian .character-profile-content h1,
+.character-page-ian .character-section-heading h2 {
+  font-variant: small-caps;
+  letter-spacing: -0.025em;
+  color: #e8fbff;
+  text-shadow: 0 0 24px rgba(95, 188, 230, 0.18);
+}
+
+.character-page-ian .character-hero-content h2,
+.character-page-ian .tech-detail-grid h3,
+.character-page-ian .ability-card h3,
+.character-page-ian .relic-card h3,
+.character-page-ian .background-chapters h3,
+.character-page-ian .character-timeline-item h3,
+.character-page-ian .gallery-lightbox-panel h3,
+.character-page-ian .identity-card strong {
+  color: #b7e6ff;
+}
+
+.character-page-ian .kicker,
+.character-page-ian .character-section-heading p,
+.character-page-ian .relic-category,
+.character-page-ian .form-subtitle,
+.character-page-ian .tech-main-grid span {
+  color: #8fd8c3;
+}
+
+.character-page-ian .character-tags span,
+.character-page-ian .skill-pills span,
+.character-page-ian .form-tab.active,
+.character-page-ian .form-tab:hover {
+  border-color: rgba(108, 202, 226, 0.58);
+  color: #dff8ff;
+  background: rgba(25, 86, 91, 0.24);
+}
+
+.character-page-ian .character-hero-content blockquote,
+.character-page-ian .character-profile-content blockquote,
+.character-page-ian .character-quotes-grid blockquote,
+.character-page-ian .form-description-card {
+  border-left-color: #63b5db;
+}
+
+.character-page-ian .character-timeline-item span {
+  background: #6fbfda;
+  box-shadow: 0 0 18px rgba(111, 191, 218, 0.48);
+}
+
+/* ----------------------------- */
+/* MIA - Rosso cremisi, stile freccia */
+/* ----------------------------- */
+
+.character-page-mia::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 14% 18%, rgba(174, 24, 45, 0.18), transparent 30%),
+    radial-gradient(circle at 82% 14%, rgba(242, 96, 86, 0.13), transparent 28%),
+    radial-gradient(circle at 50% 105%, rgba(92, 7, 18, 0.28), transparent 38%),
+    #070304;
+  z-index: -1;
+}
+
+.character-page-mia .character-hero-profile,
+.character-page-mia .character-profile,
+.character-page-mia .identity-card,
+.character-page-mia .character-tech-section,
+.character-page-mia .character-abilities-section,
+.character-page-mia .character-relics-section,
+.character-page-mia .character-background-section,
+.character-page-mia .character-forms,
+.character-page-mia .character-timeline-section,
+.character-page-mia .character-quotes-section,
+.character-page-mia .character-gallery-section {
+  border-color: rgba(210, 44, 66, 0.36);
+  background:
+    linear-gradient(115deg, rgba(58, 7, 14, 0.22), transparent 42%),
+    radial-gradient(circle at top right, rgba(215, 49, 64, 0.12), transparent 34%),
+    rgba(12, 5, 6, 0.92);
+}
+
+.character-page-mia .character-hero-content h1,
+.character-page-mia .character-profile-content h1 {
+  color: #ffe8e8;
+  letter-spacing: -0.08em;
+  text-shadow: 0 0 22px rgba(211, 42, 61, 0.22);
+}
+
+.character-page-mia .character-section-heading h2,
+.character-page-mia .character-hero-content h2,
+.character-page-mia .tech-detail-grid h3,
+.character-page-mia .ability-card h3,
+.character-page-mia .relic-card h3,
+.character-page-mia .background-chapters h3,
+.character-page-mia .character-timeline-item h3,
+.character-page-mia .gallery-lightbox-panel h3,
+.character-page-mia .identity-card strong {
+  color: #ffd0c6;
+}
+
+.character-page-mia .kicker,
+.character-page-mia .character-section-heading p,
+.character-page-mia .relic-category,
+.character-page-mia .form-subtitle,
+.character-page-mia .tech-main-grid span {
+  color: #ff6f77;
+}
+
+.character-page-mia .ability-card,
+.character-page-mia .relic-card,
+.character-page-mia .background-chapters article,
+.character-page-mia .tech-main-grid article,
+.character-page-mia .tech-detail-grid article {
+  border-left: 3px solid rgba(215, 45, 65, 0.58);
+}
+
+.character-page-mia .character-tags span,
+.character-page-mia .skill-pills span,
+.character-page-mia .form-tab.active,
+.character-page-mia .form-tab:hover {
+  border-color: rgba(232, 55, 75, 0.62);
+  color: #ffd8d8;
+  background: rgba(100, 10, 22, 0.26);
+}
+
+.character-page-mia .character-hero-content blockquote,
+.character-page-mia .character-profile-content blockquote,
+.character-page-mia .character-quotes-grid blockquote,
+.character-page-mia .form-description-card {
+  border-left-color: #d9253c;
+  background: linear-gradient(90deg, rgba(150, 10, 28, 0.18), rgba(0, 0, 0, 0.2));
+}
+
+.character-page-mia .character-timeline-item span {
+  background: #d9253c;
+  box-shadow: 0 0 18px rgba(217, 37, 60, 0.55);
+}
+
+/* Micro-rifiniture comuni delle schede colorate */
+
+.character-page-sszara .gallery-card,
+.character-page-jelly .gallery-card,
+.character-page-zero .gallery-card,
+.character-page-ian .gallery-card,
+.character-page-mia .gallery-card {
+  transition: transform 0.28s ease, border-color 0.28s ease, box-shadow 0.28s ease;
+}
+
+.character-page-sszara .gallery-card:hover,
+.character-page-jelly .gallery-card:hover,
+.character-page-zero .gallery-card:hover,
+.character-page-ian .gallery-card:hover,
+.character-page-mia .gallery-card:hover {
+  transform: translateY(-3px);
+}
+
+.character-page-sszara .back-button,
+.character-page-jelly .back-button,
+.character-page-zero .back-button,
+.character-page-ian .back-button,
+.character-page-mia .back-button {
+  border-radius: 999px;
+}
