@@ -1,16 +1,20 @@
 import { useState } from 'react'
 
-export default function CharacterForms({ forms = [] }) {
+export default function CharacterForms({ forms = [], characterName = 'personaggio' }) {
   const [activeFormId, setActiveFormId] = useState(forms[0]?.id)
   const activeForm = forms.find((form) => form.id === activeFormId) || forms[0]
 
   if (!forms.length || !activeForm) return null
 
+  const sectionTitle = forms.length > 1
+    ? `Le forme di ${characterName}`
+    : `Aspetto di ${characterName}`
+
   return (
     <section className={`character-forms character-forms-${activeForm.theme || 'default'}`}>
       <div className="character-section-heading">
         <p>Manifestazioni</p>
-        <h2>Le forme di Sszara</h2>
+        <h2>{sectionTitle}</h2>
       </div>
 
       <div className="forms-layout">

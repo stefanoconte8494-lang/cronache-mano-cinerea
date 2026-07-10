@@ -95,7 +95,7 @@ export default function CharacterPage({ character, onBack }) {
         </div>
       </section>
 
-      <CharacterForms forms={character.forms} />
+      <CharacterForms forms={character.forms} characterName={character.name} />
       <CharacterTimeline events={character.timeline} />
 
       <section className="character-quotes-section">

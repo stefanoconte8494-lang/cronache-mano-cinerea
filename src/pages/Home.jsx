@@ -79,7 +79,7 @@ export default function Home({
               <CharacterCard
                 character={character}
                 key={character.id}
-                onClick={character.id === 'sszara' ? () => onCharacterClick('sszara') : undefined}
+                onClick={character.id ? () => onCharacterClick?.(character.id) : undefined}
               />
             ))}
           </div>
@@ -90,7 +90,12 @@ export default function Home({
             <SectionTitle>Ex membri</SectionTitle>
             <div className="character-grid inactive-grid">
               {inactiveCharacters.map((character) => (
-                <CharacterCard character={character} muted key={character.id} />
+                <CharacterCard
+                  character={character}
+                  muted
+                  key={character.id}
+                  onClick={character.id ? () => onCharacterClick?.(character.id) : undefined}
+                />
               ))}
             </div>
           </section>
