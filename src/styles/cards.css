@@ -138,3 +138,67 @@
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
+
+
+
+/* VERSIONE 0.99.2 - CARD PERSONAGGI HOME */
+
+.character-card {
+  min-height: 204px;
+}
+
+.portrait-placeholder {
+  width: 76px;
+  height: 76px;
+  min-height: 76px;
+  margin: 0 auto 12px;
+  border-radius: 999px;
+  overflow: hidden;
+  background:
+    radial-gradient(circle, rgba(154, 94, 45, .3), transparent 62%),
+    #111;
+}
+
+.character-card-portrait {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  transition: transform .3s ease, filter .3s ease;
+}
+
+.character-card:hover .character-card-portrait,
+.character-card:focus-visible .character-card-portrait {
+  transform: scale(1.06);
+  filter: saturate(1.05) contrast(1.04);
+}
+
+.character-card .open-hint {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  margin-top: 12px;
+  color: #d79b47;
+  font-size: .76rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: color .25s ease, transform .25s ease;
+}
+
+.character-card:hover .open-hint,
+.character-card:focus-visible .open-hint {
+  color: #f0c77e;
+  transform: translateX(2px);
+}
+
+.character-card.muted .character-card-portrait {
+  filter: grayscale(.75) contrast(.92);
+}
+
+.character-card.muted:hover .character-card-portrait,
+.character-card.muted:focus-visible .character-card-portrait {
+  filter: grayscale(.25) saturate(.85) contrast(1);
+}

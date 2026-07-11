@@ -91,3 +91,37 @@
     min-height: 300px;
   }
 }
+
+
+
+/* VERSIONE 0.99.2 - COPERTINA ULTIMA SESSIONE COMPATTA */
+
+.latest-session-cover {
+  height: 190px;
+  min-height: 190px;
+}
+
+.latest-session-cover img {
+  height: 190px;
+  min-height: 190px;
+  object-fit: cover;
+  object-position: center 42%;
+}
+
+.latest-session-overlay {
+  left: 18px;
+  right: 18px;
+  bottom: 16px;
+}
+
+.latest-session-overlay h3 {
+  font-size: clamp(1.35rem, 3vw, 2.2rem);
+}
+
+@media (max-width: 760px) {
+  .latest-session-cover,
+  .latest-session-cover img {
+    height: 170px;
+    min-height: 170px;
+  }
+}
