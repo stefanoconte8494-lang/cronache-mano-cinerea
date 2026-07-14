@@ -1,9 +1,26 @@
 import { useMemo, useState } from 'react'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
+import NpcCard from '../components/NpcCard'
 import { npcsByFirstAppearance } from '../data/npcsData'
+import '../styles/npcs.css'
 
-const statusOptions = ['Tutti', 'Vivo', 'Viva', 'Morto', 'Non morta', 'Scomparsa', 'Attivo', 'Nemica']
+const statusOptions = [
+  'Tutti',
+  'Vivo',
+  'Viva',
+  'Morto',
+  'Morta',
+  'Non morto',
+  'Non morta',
+  'Scomparso',
+  'Scomparsa',
+  'Attivo',
+  'Nemico',
+  'Nemica',
+  'Apparizione',
+  'Sconosciuto',
+]
 
 export default function NpcsPage({
   onHomeClick,
@@ -12,7 +29,6 @@ export default function NpcsPage({
   onSessionsClick,
   onQuestsClick,
   onCodexClick,
-  onCharacterClick,
 }) {
   const [search, setSearch] = useState('')
   const [statusFilter, setStatusFilter] = useState('Tutti')
@@ -29,6 +45,7 @@ export default function NpcsPage({
         npc.notes,
         npc.firstAppearance,
       ]
+        .filter(Boolean)
         .join(' ')
         .toLowerCase()
 
@@ -37,15 +54,15 @@ export default function NpcsPage({
 
       const matchesStatus =
         statusFilter === 'Tutti' ||
-        npc.status.toLowerCase().includes(statusFilter.toLowerCase()) ||
-        npc.role.toLowerCase().includes(statusFilter.toLowerCase())
+        (npc.status || '').toLowerCase().includes(statusFilter.toLowerCase()) ||
+        (npc.role || '').toLowerCase().includes(statusFilter.toLowerCase())
 
       return matchesSearch && matchesStatus
     })
   }, [search, statusFilter])
 
   return (
-    <div className="site-shell">
+    <div className="site-shell npc-page-shell">
       <Navbar
         activePage="PNG"
         onHomeClick={onHomeClick}
@@ -56,92 +73,65 @@ export default function NpcsPage({
         onCodexClick={onCodexClick}
       />
 
-      <main className="archive-page">
-        <section className="archive-hero panel">
-          <p className="kicker">Archivio narrativo</p>
+      <main className="npc-archive-page">
+        <section className="npc-archive-hero panel">
+          <p className="kicker">Registro PNG</p>
           <h1>Personaggi non giocanti</h1>
           <p>
-            Alleati, nemici, presenze ambigue e figure ricorrenti della campagna.
-            L’elenco è ordinato per prima apparizione, ma pensato per essere consultato
-            soprattutto tramite ricerca per nome, luogo, ruolo o fazione.
+            Archivio cronologico delle persone, creature e presenze incontrate
+            dalla Mano Cinerea durante la campagna.
           </p>
+
+          <div className="npc-archive-count">
+            <strong>{npcsByFirstAppearance.length}</strong>
+            <span>personaggi censiti</span>
+          </div>
         </section>
 
         <section className="npc-tools panel">
           <label>
-            Cerca PNG
+            <span>Cerca nel registro</span>
             <input
               type="search"
               value={search}
               onChange={(event) => setSearch(event.target.value)}
-              placeholder="Gertrude, Alistair, Ishar, Locuste, morto..."
+              placeholder="Nome, fazione, luogo, ruolo..."
             />
           </label>
 
           <label>
-            Filtra per stato/ruolo
+            <span>Filtra per stato o ruolo</span>
             <select
               value={statusFilter}
               onChange={(event) => setStatusFilter(event.target.value)}
             >
               {statusOptions.map((option) => (
-                <option key={option} value={option}>{option}</option>
+                <option key={option} value={option}>
+                  {option}
+                </option>
               ))}
             </select>
           </label>
         </section>
 
-        <section className="npc-list-panel panel">
+        <section className="npc-registry panel">
           <div className="npc-list-header">
             <div>
-              <p className="kicker">Registro PNG</p>
+              <p className="kicker">Archivio cronologico</p>
               <h2>{filteredNpcs.length} voci trovate</h2>
             </div>
 
-            <p>
-              Ordinamento: prima apparizione nelle Cronache.
-            </p>
+            <p>Ordinamento: prima apparizione nelle Cronache.</p>
           </div>
 
-          <div className="npc-grid npc-grid-single-list">
+          <div className="npc-grid">
             {filteredNpcs.map((npc) => (
-              <article className="npc-card" key={npc.id}>
-                <div className="npc-card-header">
-                  {npc.portrait ? (
-                    <img className="npc-portrait" src={npc.portrait} alt={npc.name} />
-                  ) : (
-                    <span className="npc-rune">✦</span>
-                  )}
-                  <div>
-                    <h3>{npc.name}</h3>
-                    <p>{npc.role}</p>
-                  </div>
-                </div>
-
-                <dl className="npc-details">
-                  <div>
-                    <dt>Fazione/Luogo</dt>
-                    <dd>{npc.faction}</dd>
-                  </div>
-                  <div>
-                    <dt>Stato</dt>
-                    <dd className={npc.status.toLowerCase().includes('morto') ? 'status-dead' : 'status-alive'}>
-                      {npc.status}
-                    </dd>
-                  </div>
-                  <div>
-                    <dt>Prima apparizione</dt>
-                    <dd>{npc.firstAppearance}</dd>
-                  </div>
-                </dl>
-
-                <p className="npc-notes">{npc.notes}</p>
-              </article>
+              <NpcCard npc={npc} key={npc.id} />
             ))}
           </div>
 
           {filteredNpcs.length === 0 && (
-            <div className="empty-state">
+            <div className="npc-empty-state">
               Nessun PNG trovato con questi filtri.
             </div>
           )}

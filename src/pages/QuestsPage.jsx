@@ -1,10 +1,19 @@
-import { useMemo, useState } from "react";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
-import { quests } from "../data/questsData";
-import "../styles/quests.css";
+import { useMemo, useState } from 'react'
+import Navbar from '../components/Navbar'
+import Footer from '../components/Footer'
+import QuestCard from '../components/QuestCard'
+import { quests } from '../data/questsData'
+import '../styles/quests.css'
 
-const filters = ["Tutte", "Attive", "Completate", "Personali", "Segrete"];
+const filters = [
+  'Tutte',
+  'Principali',
+  'Personali',
+  'Secondarie',
+  'Attive',
+  'Completate',
+  'Segrete',
+]
 
 function QuestsPage({
   onNavigate,
@@ -15,37 +24,43 @@ function QuestsPage({
   onQuestsClick,
   onCodexClick,
 }) {
-  const [search, setSearch] = useState("");
-  const [activeFilter, setActiveFilter] = useState("Tutte");
+  const [search, setSearch] = useState('')
+  const [activeFilter, setActiveFilter] = useState('Tutte')
 
   const goHome = () => {
     if (onNavigate) {
-      onNavigate("home");
-      return;
+      onNavigate('home')
+      return
     }
 
-    onHomeClick?.();
-  };
+    onHomeClick?.()
+  }
 
   const filteredQuests = useMemo(() => {
-    const query = search.trim().toLowerCase();
+    const query = search.trim().toLowerCase()
 
     return quests.filter((quest) => {
-      const status = quest.status.toLowerCase();
-      const type = quest.type.toLowerCase();
+      const status = (quest.status || '').toLowerCase()
+      const type = (quest.type || '').toLowerCase()
 
       const matchesFilter =
-        activeFilter === "Tutte" ||
-        (activeFilter === "Attive" && (status.includes("attiva") || status.includes("corso"))) ||
-        (activeFilter === "Completate" && status.includes("completata")) ||
-        (activeFilter === "Personali" && type.includes("personale")) ||
-        (activeFilter === "Segrete" && (status.includes("segreta") || type.includes("segreta")));
+        activeFilter === 'Tutte' ||
+        (activeFilter === 'Principali' && type.includes('principale')) ||
+        (activeFilter === 'Personali' && type.includes('personale')) ||
+        (activeFilter === 'Secondarie' &&
+          !type.includes('principale') &&
+          !type.includes('personale') &&
+          !type.includes('segreta')) ||
+        (activeFilter === 'Attive' &&
+          (status.includes('attiva') || status.includes('corso'))) ||
+        (activeFilter === 'Completate' && status.includes('completata')) ||
+        (activeFilter === 'Segrete' &&
+          (status.includes('segreta') || type.includes('segreta')))
 
-      if (!matchesFilter) return false;
+      if (!matchesFilter) return false
+      if (!query) return true
 
-      if (!query) return true;
-
-      const searchable = [
+      return [
         quest.title,
         quest.status,
         quest.type,
@@ -54,12 +69,12 @@ function QuestsPage({
         quest.sessions,
         ...(quest.keyNpcs || []),
       ]
-        .join(" ")
-        .toLowerCase();
-
-      return searchable.includes(query);
-    });
-  }, [search, activeFilter]);
+        .filter(Boolean)
+        .join(' ')
+        .toLowerCase()
+        .includes(query)
+    })
+  }, [search, activeFilter])
 
   return (
     <div className="site-shell quests-shell">
@@ -73,85 +88,80 @@ function QuestsPage({
         onCodexClick={onCodexClick}
       />
 
-      <main className="quests-page">
+      <main className="quest-archive-page">
         <button className="back-button" onClick={goHome} type="button">
           ← Torna alla Home
         </button>
 
-        <section className="quests-hero">
-          <p className="section-kicker">Registro degli incarichi</p>
-          <h1>Quest</h1>
+        <section className="quest-archive-hero panel">
+          <p className="kicker">Cronache della Mano Cinerea</p>
+          <h1>Registro Quest</h1>
           <p>
             Missioni principali, contratti, misteri irrisolti e trame personali
-            della Mano Cinerea.
+            che hanno segnato il cammino della compagnia.
           </p>
+
+          <div className="quest-archive-count">
+            <strong>{quests.length}</strong>
+            <span>quest registrate</span>
+          </div>
         </section>
 
-        <section className="quests-toolbar">
-          <input
-            type="text"
-            placeholder="Cerca per quest, PNG, luogo, sessione..."
-            value={search}
-            onChange={(event) => setSearch(event.target.value)}
-          />
-          <span>{filteredQuests.length} quest</span>
+        <section className="quest-tools panel">
+          <label>
+            <span>Cerca nel registro</span>
+            <input
+              type="search"
+              value={search}
+              onChange={(event) => setSearch(event.target.value)}
+              placeholder="Titolo, PNG, luogo, sessione..."
+            />
+          </label>
+
+          <div className="quest-filter-group" aria-label="Filtri quest">
+            <span>Filtra le quest</span>
+            <div className="quest-filter-row">
+              {filters.map((filter) => (
+                <button
+                  key={filter}
+                  className={filter === activeFilter ? 'quest-filter active' : 'quest-filter'}
+                  type="button"
+                  onClick={() => setActiveFilter(filter)}
+                >
+                  {filter}
+                </button>
+              ))}
+            </div>
+          </div>
         </section>
 
-        <section className="quest-filters" aria-label="Filtri quest">
-          {filters.map((filter) => (
-            <button
-              key={filter}
-              className={filter === activeFilter ? "quest-filter active" : "quest-filter"}
-              type="button"
-              onClick={() => setActiveFilter(filter)}
-            >
-              {filter}
-            </button>
-          ))}
-        </section>
+        <section className="quest-registry panel">
+          <div className="quest-list-header">
+            <div>
+              <p className="kicker">Archivio delle missioni</p>
+              <h2>{filteredQuests.length} voci trovate</h2>
+            </div>
 
-        <section className="quests-list">
-          {filteredQuests.map((quest) => (
-            <article className="quest-card" key={quest.id}>
-              <header className="quest-card-header">
-                <div>
-                  <p className="quest-type">{quest.type}</p>
-                  <h2>{quest.title}</h2>
-                </div>
+            <p>Le immagini delle quest potranno essere aggiunte senza cambiare il layout.</p>
+          </div>
 
-                <span className={`quest-status ${quest.status.toLowerCase().replaceAll("/", "-").replaceAll(" ", "-")}`}>
-                  {quest.status}
-                </span>
-              </header>
+          <div className="quest-grid">
+            {filteredQuests.map((quest) => (
+              <QuestCard quest={quest} key={quest.id} />
+            ))}
+          </div>
 
-              <div className="quest-description">
-                <p>{quest.description}</p>
-              </div>
-
-              <footer className="quest-footer">
-                <div>
-                  <h3>PNG chiave</h3>
-                  <p>{(quest.keyNpcs || []).join(" · ")}</p>
-                </div>
-
-                <div>
-                  <h3>Luogo</h3>
-                  <p>{quest.place}</p>
-                </div>
-
-                <div>
-                  <h3>Sessioni</h3>
-                  <p>{quest.sessions}</p>
-                </div>
-              </footer>
-            </article>
-          ))}
+          {filteredQuests.length === 0 && (
+            <div className="quest-empty-state">
+              Nessuna quest trovata con questi filtri.
+            </div>
+          )}
         </section>
       </main>
 
       <Footer />
     </div>
-  );
+  )
 }
 
-export default QuestsPage;
+export default QuestsPage

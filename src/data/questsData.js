@@ -1,6 +1,7 @@
 export const quests = [
   {
     id: "recuperare-seta-ragno",
+    progress: 100,
     title: "Recuperare la seta di ragno",
     status: "Completata",
     type: "Principale",
@@ -11,6 +12,7 @@ export const quests = [
   },
   {
     id: "scoprire-cosa-accade-faro",
+    progress: 45,
     title: "Scoprire cosa accade a Faro di Cenere",
     status: "Attiva",
     type: "Principale",
@@ -21,6 +23,7 @@ export const quests = [
   },
   {
     id: "salvare-astra",
+    progress: 100,
     title: "Salvare Astra",
     status: "Completata",
     type: "Personale",
@@ -31,6 +34,7 @@ export const quests = [
   },
   {
     id: "salvare-larr",
+    progress: 100,
     title: "Salvare Larr",
     status: "Completata",
     type: "Personale",
@@ -41,6 +45,7 @@ export const quests = [
   },
   {
     id: "indagare-meteore-caduti",
+    progress: 40,
     title: "Indagare sulle meteore e i Caduti",
     status: "Attiva",
     type: "Principale",
@@ -51,6 +56,7 @@ export const quests = [
   },
   {
     id: "esplorare-torre-damocle",
+    progress: 100,
     title: "Esplorare la Torre di Damocle",
     status: "Completata",
     type: "Principale",
@@ -61,6 +67,7 @@ export const quests = [
   },
   {
     id: "risvegliare-esercito-damocle",
+    progress: 25,
     title: "Risvegliare/proteggere l'esercito di Damocle",
     status: "Segreta/Attiva",
     type: "Segreta",
@@ -71,6 +78,7 @@ export const quests = [
   },
   {
     id: "mistero-residenza-34",
+    progress: 35,
     title: "Mistero della Residenza 34",
     status: "Attiva",
     type: "Mistero",
@@ -81,6 +89,7 @@ export const quests = [
   },
   {
     id: "spedizione-rosso-fosso",
+    progress: 100,
     title: "Spedizione a Rosso Fosso",
     status: "Completata",
     type: "Principale",
@@ -91,6 +100,7 @@ export const quests = [
   },
   {
     id: "taglia-sette",
+    progress: 30,
     title: "Taglia sui Sette",
     status: "Attiva",
     type: "Caccia",
@@ -101,6 +111,7 @@ export const quests = [
   },
   {
     id: "aiutare-astra-larr-ishar",
+    progress: 45,
     title: "Aiutare Astra e Larr a Ishar",
     status: "Attiva",
     type: "Principale",
@@ -111,6 +122,7 @@ export const quests = [
   },
   {
     id: "indagare-lama-saariel",
+    progress: 35,
     title: "Indagare la lama di Saariel",
     status: "Attiva",
     type: "Personale",
@@ -121,6 +133,7 @@ export const quests = [
   },
   {
     id: "contratto-vampiro",
+    progress: 65,
     title: "Contratto del vampiro",
     status: "In corso",
     type: "Contratto",
@@ -131,6 +144,7 @@ export const quests = [
   },
   {
     id: "caccia-tulipano",
+    progress: 20,
     title: "Caccia al Tulipano",
     status: "Attiva",
     type: "Caccia",
@@ -141,6 +155,7 @@ export const quests = [
   },
   {
     id: "dimora-ian",
+    progress: 15,
     title: "Dimora di Ian",
     status: "Attiva/Personale",
     type: "Personale",
@@ -151,6 +166,7 @@ export const quests = [
   },
   {
     id: "furia-jelly",
+    progress: 15,
     title: "Furia di Jelly",
     status: "Attiva/Personale",
     type: "Personale",
